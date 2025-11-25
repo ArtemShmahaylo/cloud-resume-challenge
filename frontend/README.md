@@ -24,7 +24,7 @@ I will be using [Europass](.frontend/docs/Europass_CV.pdf) template as a basis o
 
 I do not know HTML, so I will let GenAI do the heavy lifting and generate out HTML and possibly CSS and from there I will manually refactor to my preferred standard.
 
-Prompt to ChatGPT 5
+Prompt to Cloude Sonnet 4.5
 ```text
 Convert this CV into html format. Please do not use CSS framework. Please use the least amount of CSS tags.
 ```
