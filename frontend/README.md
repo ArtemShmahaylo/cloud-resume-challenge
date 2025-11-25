@@ -33,3 +33,12 @@ Image provided to prompt:
 ![](./docs/Europass_CV_Page_1.jpg)
 ![](./docs/Europass_CV_Page_2.jpg)
 
+This is [generated output](./docs/25.11.cv-html.html) which I will refactor.
+
+## HTML Aljustments
+
+- UTF-8 will support most languages, I plan to use English and Dutch
+- Because I will be applying mobile styling to the website I'll include the viewport meta tag "width=device-width" so mobile styling scales normally.
+- I will extract my styles into its own stylesheet after I am happy with my HTML markup.
+- I will simplify my HTML markup css selector to be as minimal as possible.
+

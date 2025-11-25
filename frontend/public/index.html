@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artem Shmahaylo - Cloud Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fafafa;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin: 0 0 5px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 0 0 4px;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item strong {
+      font-weight: 600;
+    }
+
+    .profile {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .lang-switch {
+      margin: 18px 0 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lang-button {
+      border: 1px solid #333;
+      background-color: #fff;
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .lang-button.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .job, .education, .project {
+      margin-bottom: 14px;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .location {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    ul {
+      margin: 6px 0 4px 18px;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #0059b3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .tagline {
+      margin-top: 4px;
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .skill-groups {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .skill-group-title {
+      font-weight: 600;
+    }
+
+    .lang-list {
+      font-size: 0.9rem;
+    }
+
+    .lang-list span {
+      display: inline-block;
+      margin-right: 16px;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .badge {
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    #resume-nl {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 20px auto;
+        padding: 0 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Artem Shmahaylo</h1>
+    <div class="subtitle">AWS Certified Solutions Architect Associate &mdash; Cloud &amp; Infrastructure Enthusiast</div>
+    <div class="contact-grid">
+      <div class="contact-item"><strong>Date of birth:</strong> 01 July 1980</div>
+      <div class="contact-item"><strong>Nationality:</strong> Belgian</div>
+      <div class="contact-item"><strong>Phone:</strong> +32 485 38 29 14</div>
+      <div class="contact-item"><strong>Email:</strong> <a href="mailto:artshmagailo@gmail.com">artshmagailo@gmail.com</a></div>
+      <div class="contact-item"><strong>Address:</strong> Morekstraat 126, 9032 Gent, Belgium</div>
+      <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/artem-shmahaylo">/in/artem-shmahaylo</a></div>
+      <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/ArtemShmahaylo">github.com/ArtemShmahaylo</a></div>
+    </div>
+    <p class="profile" id="profile-en">
+      Cloud engineering professional transitioning from a successful 20+ year international career as a principal cellist.
+      AWS Solutions Architect Associate with hands-on experience in IAM, S3, EC2, VPC and CloudFront. Motivated by
+      building secure, reliable solutions and bringing discipline, focus and calm under pressure into technical teams.
+    </p>
+    <p class="profile" id="profile-nl" style="display:none;">
+      Cloud engineer in transitie vanuit een lange internationale carrière als solocellist.
+      Gecertificeerd AWS Solutions Architect Associate met praktische ervaring in IAM, S3, EC2, VPC en CloudFront.
+      Gedreven door het bouwen van veilige, betrouwbare oplossingen en bekend om discipline, focus en rust onder druk.
+    </p>
+
+    <div class="lang-switch">
+      <button class="lang-button active" id="btn-en" onclick="showEnglish()">English</button>
+      <button class="lang-button" id="btn-nl" onclick="showDutch()">Nederlands</button>
+    </div>
+    <div class="tagline">Multi-language Cloud Resume (EN / NL)</div>
+  </header>
+
+  <!-- ENGLISH VERSION -->
+  <main id="resume-en">
+    <section class="section">
+      <h2>Work Experience</h2>
+
+      <div class="job">
+        <h3>Proximus On-Site Technician (Fiber In-Home Splicer)</h3>
+        <div class="date">October 2023 &ndash; Present</div>
+        <div class="location">Circet Belgium &mdash; Kontich, Belgium</div>
+        <ul>
+          <li>Install, activate and test fiber connections for residential and business customers.</li>
+          <li>Perform OTDR and signal-level measurements to verify service quality and stability.</li>
+          <li>Diagnose and resolve connectivity issues (ONT, modem, Wi-Fi, in-house wiring) on-site.</li>
+          <li>Configure customer equipment and provide clear, customer-friendly explanations.</li>
+          <li>Work autonomously in the field with a strong focus on safety, accuracy and reliability.</li>
+          <li>Escalate complex technical issues to Proximus engineering teams when required.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Principal Cellist / Orchestral Musician</h3>
+        <div class="date">1999 &ndash; 2023</div>
+        <div class="location">Belgian National Orchestra, Antwerp Symphony Orchestra, Casco Phil</div>
+        <ul>
+          <li>Led the cello section in national and international performances for leading orchestras.</li>
+          <li>Performed at major concert halls and festivals across Europe and the United States.</li>
+          <li>Collaborated with world-class conductors, soloists and production teams.</li>
+          <li>Participated in large-scale film-in-concert productions (e.g. Lord of the Rings, Harry Potter).</li>
+          <li>Maintained consistent high performance under pressure in fast-paced, demanding environments.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Principal Cellist &mdash; Ukrainian Freedom Orchestra</h3>
+        <div class="date">2022 &ndash; Present</div>
+        <div class="location">International touring orchestra</div>
+        <ul>
+          <li>Selected as principal cellist for an international orchestra representing Ukrainian culture abroad.</li>
+          <li>Toured across Europe and North America in support of cultural diplomacy and humanitarian causes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Education &amp; Training</h2>
+
+      <div class="education">
+        <h3>AWS Solutions Architect Associate &mdash; Certified</h3>
+        <div class="date">2025</div>
+        <div class="location">Amazon Web Services</div>
+        <ul>
+          <li>Validated knowledge of designing secure, resilient and cost-optimised workloads on AWS.</li>
+        </ul>
+      </div>
+
+      <div class="education">
+        <h3>CS50&rsquo;s Introduction to Programming with Python</h3>
+        <div class="date">2024 &ndash; 2025</div>
+        <div class="location">HarvardX / edX (online)</div>
+        <ul>
+          <li>Completed a comprehensive introduction to programming, algorithms and problem solving in Python.</li>
+          <li>Developed multiple projects including a final automation-oriented CLI tool.</li>
+        </ul>
+      </div>
+
+      <div class="education">
+        <h3>Master of Arts in Music Performance (Violoncello) &mdash; Cum Laude</h3>
+        <div class="date">2010 &ndash; 2013</div>
+        <div class="location">Royal Academy of Fine Arts (KASK), Gent, Belgium</div>
+        <ul>
+          <li>Graduated with a 20/20 jury score, an exceptionally rare distinction.</li>
+          <li>Received a cultural prize from the Mayor of Gent for outstanding performance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Technical Skills</h2>
+      <div class="skill-groups">
+        <div>
+          <div class="skill-group-title">Cloud &amp; AWS</div>
+          <div>IAM, S3, EC2, VPC, CloudFront, Lambda (basic), CloudWatch, CloudTrail</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Security &amp; IAM</div>
+          <div>Least privilege, IAM policies and roles, MFA, role assumption, secure defaults</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Programming &amp; Tools</div>
+          <div>Python, Bash, PowerShell, Git, GitHub, Linux CLI, VS Code</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Soft Skills</div>
+          <div>Communication, autonomy, discipline, analytical thinking, mentoring and teamwork</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Languages</h2>
+      <div class="lang-list">
+        <span><strong>Ukrainian:</strong> native</span>
+        <span><strong>Russian:</strong> native</span>
+        <span><strong>English:</strong> C1</span>
+        <span><strong>Dutch:</strong> B1</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <h3>Cloud Resume Challenge (in progress)</h3>
+        <div class="date">2025</div>
+        <ul>
+          <li>Building a multi-language HTML resume hosted on AWS as part of the Cloud Resume Bootcamp.</li>
+          <li>Static hosting via S3 and CloudFront with HTTPS using AWS Certificate Manager.</li>
+          <li>Implementing a visitor counter using Lambda and DynamoDB.</li>
+          <li>Using GitHub Actions for CI/CD to automate deployment from source control.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>AWS Configuration Automation Tool (Python)</h3>
+        <div class="date">2025</div>
+        <ul>
+          <li>CLI tool to generate JSON configuration templates for S3, EC2 and Lambda resources.</li>
+          <li>Focused on secure defaults and IAM best practices for roles and policies.</li>
+          <li>Implemented modular, readable code with input validation and clear error handling.</li>
+          <li>Added automated tests using pytest and mocked AWS calls with moto.</li>
+        </ul>
+        <div class="badge-list">
+          <span class="badge"><a href="https://github.com/me50/ArtemShmahaylo#aws-configuration-automation-tool">GitHub</a></span>
+          <span class="badge"><a href="https://youtu.be/rJxdXfjxMkM">YouTube demo</a></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- DUTCH VERSION -->
+  <main id="resume-nl">
+    <section class="section">
+      <h2>Werkervaring</h2>
+
+      <div class="job">
+        <h3>Proximus On-Site Technician (Fiber In-Home Splicer)</h3>
+        <div class="date">Oktober 2023 &ndash; Heden</div>
+        <div class="location">Circet Belgium &mdash; Kontich, België</div>
+        <ul>
+          <li>Installeren, activeren en testen van glasvezelverbindingen bij particuliere en zakelijke klanten.</li>
+          <li>Uitvoeren van OTDR- en signaalmetingen om kwaliteit en stabiliteit te verifiëren.</li>
+          <li>Oplossen van connectiviteitsproblemen (ONT, modem, Wi-Fi, interne bekabeling) ter plaatse.</li>
+          <li>Apparatuur configureren en duidelijke, klantvriendelijke technische uitleg geven.</li>
+          <li>Zelfstandig werken op locatie met focus op veiligheid, nauwkeurigheid en betrouwbaarheid.</li>
+          <li>Complexe technische problemen indien nodig escaleren naar Proximus-engineeringteams.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Principal Cellist / Orkestmusicus</h3>
+        <div class="date">1999 &ndash; 2023</div>
+        <div class="location">Belgian National Orchestra, Antwerp Symphony Orchestra, Casco Phil</div>
+        <ul>
+          <li>Aanvoerder van de cellogroep bij nationale en internationale concerten.</li>
+          <li>Optredens op grote concertpodia en festivals in Europa en de Verenigde Staten.</li>
+          <li>Samenwerken met dirigenten, solisten en productieteams op topniveau.</li>
+          <li>Deelname aan grootschalige film-in-concert producties (zoals Lord of the Rings, Harry Potter).</li>
+          <li>Constante prestaties onder druk in veeleisende, snel veranderende omgevingen.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Principal Cellist &mdash; Ukrainian Freedom Orchestra</h3>
+        <div class="date">2022 &ndash; Heden</div>
+        <div class="location">Internationaal tourend orkest</div>
+        <ul>
+          <li>Geselecteerd als solocellist voor een internationaal orkest dat de Oekraïense cultuur in het buitenland vertegenwoordigt.</li>
+          <li>Tournees door Europa en Noord-Amerika in het kader van culturele diplomatie en humanitaire initiatieven.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Opleiding &amp; Training</h2>
+
+      <div class="education">
+        <h3>AWS Solutions Architect Associate &mdash; Gecertificeerd</h3>
+        <div class="date">2025</div>
+        <div class="location">Amazon Web Services</div>
+        <ul>
+          <li>Aangetoonde kennis van het ontwerpen van veilige, veerkrachtige en kostengeoptimaliseerde workloads op AWS.</li>
+        </ul>
+      </div>
+
+      <div class="education">
+        <h3>CS50&rsquo;s Introduction to Programming with Python</h3>
+        <div class="date">2024 &ndash; 2025</div>
+        <div class="location">HarvardX / edX (online)</div>
+        <ul>
+          <li>Grondige introductie tot programmeren, algoritmen en probleemoplossing in Python.</li>
+          <li>Meerdere projecten uitgewerkt, inclusief een eindproject gericht op automatisering.</li>
+        </ul>
+      </div>
+
+      <div class="education">
+        <h3>Master of Arts in Muziek (Cello) &mdash; Cum Laude</h3>
+        <div class="date">2010 &ndash; 2013</div>
+        <div class="location">Koninklijke Academie voor Schone Kunsten (KASK), Gent</div>
+        <ul>
+          <li>Afgestudeerd met een 20/20-score van de jury, een uitzonderlijke onderscheiding.</li>
+          <li>Culturele prijs ontvangen van de burgemeester van Gent voor uitmuntende prestaties.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Technische Vaardigheden</h2>
+      <div class="skill-groups">
+        <div>
+          <div class="skill-group-title">Cloud &amp; AWS</div>
+          <div>IAM, S3, EC2, VPC, CloudFront, Lambda (basis), CloudWatch, CloudTrail</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Beveiliging &amp; IAM</div>
+          <div>Least privilege, IAM policies en rollen, MFA, role assumption, veilige defaults</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Programmeren &amp; Tools</div>
+          <div>Python, Bash, PowerShell, Git, GitHub, Linux CLI, VS Code</div>
+        </div>
+        <div>
+          <div class="skill-group-title">Soft Skills</div>
+          <div>Communicatie, zelfstandigheid, discipline, analytisch vermogen, samenwerken</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Talen</h2>
+      <div class="lang-list">
+        <span><strong>Oekraïens:</strong> moedertaal</span>
+        <span><strong>Russisch:</strong> moedertaal</span>
+        <span><strong>Engels:</strong> C1</span>
+        <span><strong>Nederlands:</strong> B1</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projecten</h2>
+
+      <div class="project">
+        <h3>Cloud Resume Challenge (in uitvoering)</h3>
+        <div class="date">2025</div>
+        <ul>
+          <li>Opbouwen van een meertalige HTML-CV gehost op AWS als onderdeel van de Cloud Resume Bootcamp.</li>
+          <li>Statische hosting via S3 en CloudFront met HTTPS via AWS Certificate Manager.</li>
+          <li>Implementeren van een bezoekerscounter met Lambda en DynamoDB.</li>
+          <li>Automatische deployment via GitHub Actions (CI/CD).</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>AWS Configuration Automation Tool (Python)</h3>
+        <div class="date">2025</div>
+        <ul>
+          <li>CLI-tool om JSON-configuraties voor S3, EC2 en Lambda te genereren.</li>
+          <li>Focust op veilige standaardinstellingen en IAM best practices.</li>
+          <li>Modulaire, leesbare code met inputvalidatie en duidelijke foutafhandeling.</li>
+          <li>Automatische tests opgezet met pytest en gesimuleerde AWS-calls met moto.</li>
+        </ul>
+        <div class="badge-list">
+          <span class="badge"><a href="https://github.com/me50/ArtemShmahaylo#aws-configuration-automation-tool">GitHub</a></span>
+          <span class="badge"><a href="https://youtu.be/rJxdXfjxMkM">YouTube-demo</a></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function showEnglish() {
+      document.getElementById('resume-en').style.display = 'block';
+      document.getElementById('resume-nl').style.display = 'none';
+      document.getElementById('profile-en').style.display = 'block';
+      document.getElementById('profile-nl').style.display = 'none';
+      document.getElementById('btn-en').classList.add('active');
+      document.getElementById('btn-nl').classList.remove('active');
+    }
+
+    function showDutch() {
+      document.getElementById('resume-en').style.display = 'none';
+      document.getElementById('resume-nl').style.display = 'block';
+      document.getElementById('profile-en').style.display = 'none';
+      document.getElementById('profile-nl').style.display = 'block';
+      document.getElementById('btn-en').classList.remove('active');
+      document.getElementById('btn-nl').classList.add('active');
+    }
+  </script>
+</body>
+</html>

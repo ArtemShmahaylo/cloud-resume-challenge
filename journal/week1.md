@@ -1,51 +1,44 @@
 # Week 1 – Journal Entry
 
-## 1. Technical Uncertainty (What I didn't know at first)
-I was unsure how commit rewriting works in github.dev. Specifically, I expected the “Git: Amend Commit” command to expose the previous commit message, but github.dev did not show the old message or allow me to edit the last commit through the UI.
+## November 23–24 – Git History Fix & Local Environment Setup
 
-I was also uncertain whether github.dev supports a Git terminal or advanced Git workflows.
+### What I worked on
+- Investigated how commit amending works in github.dev.
+- Discovered that github.dev does not allow rewriting commit history through the UI.
+- Set up a local VS Code environment and cloned the repository.
+- Rewrote the last three commits locally using `git reset --soft` and pushed the corrected history.
 
-## 2. Hypothesis
-My assumption was that github.dev behaves like VS Code Desktop:
-- it would show the previous commit message when running `Amend`
-- it would allow re-writing history directly from the UI
-- it might have a hidden Git terminal
+### Obstacles
+- Expected github.dev to support amend commit workflows, but it does not.
+- Needed to switch to local VS Code to apply the proper Git commands.
 
-## 3. Technical Exploration (What I tried)
-I explored several approaches:
+### What I learned
+- github.dev is limited for advanced Git operations.
+- Rewriting commit history must be done locally (or through Codespaces).
+- Local VS Code is the correct environment for professional Git workflows.
 
-- Ran `Git: Amend Commit` from the command palette  
-  → github.dev did not expose previous commit message
-
-- Checked the Source Control view  
-  → no amend option available unless changes are staged
-
-- Attempted to open a terminal  
-  → github.dev prompted me to open Codespaces (paid option)
-
-- Considered Codespaces but closed it to avoid charges
-
-Eventually I decided to perform commit rewriting locally via VS Code Desktop:
-git reset --soft HEAD~3
-git add .
-git commit -m "feat: Initial project setup – professional README, Europass CV screenshots, folder structure"
-git push --force-with-lease
+### Progress Summary
+Cleaned up commit history, configured local environment, and now have a much smoother workflow for future development.
 
 
-This successfully rewrote the last three commits and cleaned the commit history.
+## November 25 – HTML Review & README Update
 
-## 4. Final Observation (What I learned)
-- github.dev does **not** support amend commit workflows properly  
-- github.dev has **no integrated Git terminal**, only Codespaces  
-- rewriting history must be done either in Codespaces or on a **local clone**
-- using local VS Code is the correct, professional solution for advanced Git operations
+### What I worked on
+- Reviewed the generated HTML resume and started planning the refactor.
+- Added a short “HTML Adjustments” section to my README to document decisions:
+  - Use UTF-8 for multi-language support (EN/NL)
+  - Add mobile viewport tag
+  - Keep styles inline for now and extract later
+  - Simplify CSS selectors once structure stabilises
 
-## 5. Outcomes (Results)
-- Cleaned and rewritten commit history
-- Professional commit message applied
-- Local VS Code environment fully configured
-- Repository cloned and ready for real development
-- Improved understanding of Git workflows across environments
+### Obstacles
+- Unsure how much refactoring Andrew expects at this stage.
+- Needed clarity on when to extract CSS and when to keep markup simple.
 
-## 6. (Optional) Challenges Attempted
-No additional challenges attempted this week.
+### What I learned
+- Early HTML does not need to be perfect; clarity and minimalism matter more.
+- Documenting intent in README helps keep the project organized and maintainable.
+
+### Progress summary
+Small but steady progress today — clarified the frontend refactor plan and updated project documentation.
+
