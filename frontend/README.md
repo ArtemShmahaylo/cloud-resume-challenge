@@ -24,9 +24,16 @@ I will be using [Europass](.frontend/docs/Europass_CV.pdf) template as a basis o
 
 I do not know HTML, so I will let GenAI do the heavy lifting and generate out HTML and possibly CSS and from there I will manually refactor to my preferred standard.
 
-Prompt to Cloude Sonnet 4.5
+Prompt to ChatGPT 5.1
 ```text
-Convert this CV into html format. Please do not use CSS framework. Please use the least amount of CSS tags.
+- EN/NL language support
+- minimalist HTML structure
+- inline CSS (no frameworks)
+- Belgian CV conventions
+- only Belgian education + AWS/CS50
+- a language switcher with minimal JS
+- UTF-8 + responsive viewport
+- clean, simple CSS selectors
 ```
 
 Image provided to prompt:
@@ -35,10 +42,33 @@ Image provided to prompt:
 
 This is [generated output](./docs/25.11.cv-html.html) which I will refactor.
 
+This is what the generated HTML looks like unaltered:
+
+![](./docs/25.11.cv-html-rendered-01.png)
+
 ## HTML Aljustments
 
 - UTF-8 will support most languages, I plan to use English and Dutch
 - Because I will be applying mobile styling to the website I'll include the viewport meta tag "width=device-width" so mobile styling scales normally.
 - I will extract my styles into its own stylesheet after I am happy with my HTML markup.
 - I will simplify my HTML markup css selector to be as minimal as possible.
+- I am using 2-space soft tabs for indentation. This is the default configuration in my editor and keeps the HTML easy to read. If needed, I can adjust this later for consistency across the project.
+
+I performed a full manual refactor with the help of ChatGPT (GPT-5.1), including:
+- rewriting the entire HTML layout
+- adding bilingual EN/NL support
+- restructuring sections for clarity and semantic correctness
+- improving accessibility
+- creating minimalistic CSS
+- adding a JavaScript-based language switcher
+- aligning the resume with Belgian CV conventions
+- removing all irrelevant content not suitable for a cloud resume project
+
+The final [`index.html`](./public/index.html) represents my own refactored work based on an AI draft,  
+following the Bootcamp requirement to improve and personalize the generated output.
+
+This is what the rendered final HTML looks like:
+
+![](./docs/resume-rendered-en-01.png)
+![](./docs/resume-rendered-nl-01.png)
 

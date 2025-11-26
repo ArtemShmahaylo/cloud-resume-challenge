@@ -42,3 +42,21 @@ Cleaned up commit history, configured local environment, and now have a much smo
 ### Progress summary
 Small but steady progress today — clarified the frontend refactor plan and updated project documentation.
 
+
+## November 26 – README Updates & Project Review
+
+### What I worked on
+- Continued updating the README to match Andrew’s style and document my frontend process.
+- Added sections describing generated HTML, refactoring decisions, screenshots, and AI involvement.
+
+### Obstacles
+- Unsure how detailed the README should be at this stage and whether my documentation is becoming too long.
+- Needed clarity on whether to include all screenshots or only selected examples.
+
+### What I learned
+- README can be verbose during development; the final professional cleanup will happen after the frontend is complete.
+- Only 1–2 screenshots belong in README, while the full set can be stored in the documentation folder.
+- Andrew’s “document everything” applies mainly to journal notes, not the final README structure.
+
+### Progress Summary
+Small but steady progress: expanded README, clarified documentation strategy, and prepared for the upcoming HTML refactor stage.
