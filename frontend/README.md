@@ -79,6 +79,19 @@ I need to serve my static website locally so I can start using stylesheets exter
 > This is not necessary with local development.
 
 Assuming I have node install I'll use the simple web-server http-server
+
+### Install HTTP Server
 ```sh
 npm i http-server -g
+```
+
+https://www.npmjs.com/package/http-server
+
+### Server Website
+
+http-server will server a public folder by default where the command is run.
+
+```sh
+cd frontend
+http-server
 ```
