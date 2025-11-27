@@ -72,3 +72,13 @@ This is what the rendered final HTML looks like:
 ![](./docs/resume-rendered-en-01.png)
 ![](./docs/resume-rendered-nl-01.png)
 
+## Serve Static Website Locally
+
+I need to serve my static website locally so I can start using stylesheets externally from my HTML page in a Cloud Developer Encitonment (CDE)
+
+> This is not necessary with local development.
+
+Assuming I have node install I'll use the simple web-server http-server
+```sh
+npm i http-server -g
+```
