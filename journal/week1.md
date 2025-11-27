@@ -60,3 +60,29 @@ Small but steady progress today — clarified the frontend refactor plan and upd
 
 ### Progress Summary
 Small but steady progress: expanded README, clarified documentation strategy, and prepared for the upcoming HTML refactor stage.
+
+
+## November 27 – Static Server Setup & CSS Refactor
+
+### What I worked on
+- Watched part of the “Static Web Server and Basic Styling” video
+- Created `assets/stylesheets/` and moved CSS into `style.css`
+- Linked the external stylesheet from `index.html` and removed inline styles
+- Fixed HTML indentation after the refactor
+- Tested the site locally with `http-server` (Codespaces/local)
+
+### Obstacles
+- Very low energy after a difficult workday
+- Needed time to understand how Codespaces + local static server fit into the workflow
+- Had to manually correct indentation after moving styles
+
+### What I learned
+- How to serve a static website using `http-server`
+- How to structure frontend assets (`public/assets/stylesheets`) for a cleaner project
+- Quick ways to adjust indentation in VS Code
+
+### Progress Summary
+Small but solid step: external CSS is working, project structure is cleaner, and the static server setup is ready for the next styling changes.
+
+
+
