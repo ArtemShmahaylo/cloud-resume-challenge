@@ -85,4 +85,24 @@ Small but steady progress: expanded README, clarified documentation strategy, an
 Small but solid step: external CSS is working, project structure is cleaner, and the static server setup is ready for the next styling changes.
 
 
+## November 29 – Navigation Bar & Page Structure Setup
+
+### What I worked on
+- Added the navigation bar (`<nav>`) at the top of the page following Andrew’s structure.
+- Updated the HTML layout so the site can expand into a multi-page format later.
+- Confirmed CSS linking and styling for the navigation bar.
+
+### Obstacles
+- Needed clarity on where exactly to place the navigation block inside the HTML.
+- Ensured that adding navigation did not break existing layout or language switching.
+
+### What I learned
+- Navigation bars should always be placed at the top of the `<body>` for multi-page websites.
+- Internal anchor links (`#resume`, `#projects`, etc.) work as placeholders until real pages are created.
+- Andrew’s approach uses a multi-page layout, so preparing the structure now is the right step.
+
+### Progress Summary
+Solid progress: navigation bar implemented, HTML structure aligned with Andrew’s project format, and the site is ready for future pages (Resume, Projects, Contact).
+
+
 
