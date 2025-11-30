@@ -105,5 +105,25 @@ Small but solid step: external CSS is working, project structure is cleaner, and
 Solid progress: navigation bar implemented, HTML structure aligned with Andrew’s project format, and the site is ready for future pages (Resume, Projects, Contact).
 
 
+## November 30
 
+### What I worked on
+- Continued the “Complete Styling for Resume Page” video.
+- Added the navigation bar and placed it correctly outside the header.
+- Improved CSS for spacing, hover effects, and cleaned the stylesheet.
+- Fixed the layout issue in the “Programming & Tools” section.
 
+### What I learned
+- How CSS specificity affects link colors.
+- How multi-page navigation enables active-link highlighting without JS.
+- Basics of debugging layout issues using browser DevTools.
+
+### Obstacles
+- Hard to compare Andrew’s minimal CSS with our advanced version.
+- Link styling conflicted with global anchor rules.
+- Limited time for coding today.
+
+### Next steps
+- Move on to “Setup React Vitejs React Router”
+- Build real multi-page navigation soon.
+- Add proper active-page highlighting when new pages exist.

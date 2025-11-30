@@ -1,4 +1,6 @@
-
+/* ============================
+   GLOBAL PAGE STYLES
+   ============================ */
 body {
     font-family: Arial, sans-serif;
     max-width: 960px;
@@ -9,31 +11,39 @@ body {
     background-color: #fafafa;
 }
 
+/* ============================
+   NAVIGATION MENU
+   ============================ */
 .nav {
-  display: flex;
-  gap: 24px;
-  padding: 16px 0;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 24px;
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 24px;
 }
 
-.nav-link {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-  text-decoration: none;
-  padding-bottom: 4px;
+/* Basic link style inside nav (override global link styles!) */
+.nav a {
+    color: #333 !important;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.nav-link:hover {
-  color: #0077cc;
+/* Hover effect */
+.nav a:hover {
+    text-decoration: underline;
 }
 
-.nav-link.active {
-  color: #0077cc;
-  border-bottom: 3px solid #0077cc;
+/* Active page highlight */
+.nav a.active {
+    color: #000 !important;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
 }
 
+/* ============================
+   HEADINGS
+   ============================ */
 h1 {
     font-size: 2.2rem;
     margin: 0 0 5px;
@@ -54,6 +64,9 @@ h3 {
     margin: 0 0 4px;
 }
 
+/* ============================
+   HEADER BLOCK
+   ============================ */
 .header {
     display: flex;
     flex-direction: column;
@@ -66,6 +79,9 @@ h3 {
     color: #555;
 }
 
+/* ============================
+   CONTACT GRID
+   ============================ */
 .contact-grid {
     display: flex;
     flex-wrap: wrap;
@@ -77,12 +93,18 @@ h3 {
     font-weight: 600;
 }
 
+/* ============================
+   PROFILE TEXT
+   ============================ */
 .profile {
     margin-top: 10px;
     font-size: 0.95rem;
     color: #444;
 }
 
+/* ============================
+   LANGUAGE SWITCHER
+   ============================ */
 .lang-switch {
     margin: 18px 0 8px;
     display: flex;
@@ -104,11 +126,16 @@ h3 {
     color: #fff;
 }
 
+/* ============================
+   SECTION STYLES
+   ============================ */
 .section {
     margin-bottom: 18px;
 }
 
-.job, .education, .project {
+.job,
+.education,
+.project {
     margin-bottom: 14px;
 }
 
@@ -129,6 +156,10 @@ ul {
     font-size: 0.9rem;
 }
 
+/* ============================
+   GLOBAL LINK STYLE
+   (kept but does NOT override nav)
+   ============================ */
 a {
     color: #0059b3;
     text-decoration: none;
@@ -138,6 +169,9 @@ a:hover {
     text-decoration: underline;
 }
 
+/* ============================
+   MISC
+   ============================ */
 .tagline {
     margin-top: 4px;
     font-size: 0.9rem;
@@ -146,9 +180,9 @@ a:hover {
 }
 
 .skill-groups {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 30px;
     font-size: 0.9rem;
 }
 
@@ -180,13 +214,17 @@ a:hover {
     background-color: #fff;
 }
 
+/* Dutch resume hidden by default */
 #resume-nl {
     display: none;
 }
 
+/* ============================
+   MOBILE
+   ============================ */
 @media (max-width: 600px) {
     body {
-    margin: 20px auto;
-    padding: 0 12px 24px;
+        margin: 20px auto;
+        padding: 0 12px 24px;
     }
 }
