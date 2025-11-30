@@ -11,23 +11,27 @@ body {
 
 .nav {
   display: flex;
-  gap: 20px;
-  background: #fff;
-  padding: 10px 0;
+  gap: 24px;
+  padding: 16px 0;
   border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  margin-bottom: 24px;
 }
 
-.nav a {
-  text-decoration: none;
-  color: #333;
+.nav-link {
+  font-size: 1rem;
   font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  padding-bottom: 4px;
 }
 
-.nav a:hover {
-  text-decoration: underline;
+.nav-link:hover {
+  color: #0077cc;
+}
+
+.nav-link.active {
+  color: #0077cc;
+  border-bottom: 3px solid #0077cc;
 }
 
 h1 {
