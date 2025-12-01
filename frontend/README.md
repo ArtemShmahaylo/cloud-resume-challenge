@@ -1,97 +1,16 @@
-# Frontend Technical Specification
+# React + Vite
 
-- Create a static website that serves an html resume
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Resume Format Consideration
+Currently, two official plugins are available:
 
-I live in Belgium and CV's in word/pdf format are suppose to include:
-- foto
-- date of birth
-- nationality
-- full address
-- email address
-- GSM number
-- LinkedIn link
-- GitHub link
-- Short Profile - 2-3 sentences
-- Work experience
-- Education
-- Hard and Soft skills
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-I will be using [Europass](.frontend/docs/Europass_CV.pdf) template as a basis of my resume
+## React Compiler
 
-### Europass CV Generation
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-I do not know HTML, so I will let GenAI do the heavy lifting and generate out HTML and possibly CSS and from there I will manually refactor to my preferred standard.
+## Expanding the ESLint configuration
 
-Prompt to ChatGPT 5.1
-```text
-- EN/NL language support
-- minimalist HTML structure
-- inline CSS (no frameworks)
-- Belgian CV conventions
-- only Belgian education + AWS/CS50
-- a language switcher with minimal JS
-- UTF-8 + responsive viewport
-- clean, simple CSS selectors
-```
-
-Image provided to prompt:
-![](./docs/Europass_CV_Page_1.jpg)
-![](./docs/Europass_CV_Page_2.jpg)
-
-This is [generated output](./docs/25.11.cv-html.html) which I will refactor.
-
-This is what the generated HTML looks like unaltered:
-
-![](./docs/25.11.cv-html-rendered-01.png)
-
-## HTML Aljustments
-
-- UTF-8 will support most languages, I plan to use English and Dutch
-- Because I will be applying mobile styling to the website I'll include the viewport meta tag "width=device-width" so mobile styling scales normally.
-- I will extract my styles into its own stylesheet after I am happy with my HTML markup.
-- I will simplify my HTML markup css selector to be as minimal as possible.
-- I am using 2-space soft tabs for indentation. This is the default configuration in my editor and keeps the HTML easy to read. If needed, I can adjust this later for consistency across the project.
-
-I performed a full manual refactor with the help of ChatGPT (GPT-5.1), including:
-- rewriting the entire HTML layout
-- adding bilingual EN/NL support
-- restructuring sections for clarity and semantic correctness
-- improving accessibility
-- creating minimalistic CSS
-- adding a JavaScript-based language switcher
-- aligning the resume with Belgian CV conventions
-- removing all irrelevant content not suitable for a cloud resume project
-
-The final [`index.html`](./public/index.html) represents my own refactored work based on an AI draft,  
-following the Bootcamp requirement to improve and personalize the generated output.
-
-This is what the rendered final HTML looks like:
-
-![](./docs/resume-rendered-en-01.png)
-![](./docs/resume-rendered-nl-01.png)
-
-## Serve Static Website Locally
-
-I need to serve my static website locally so I can start using stylesheets externally from my HTML page in a Cloud Developer Encitonment (CDE)
-
-> This is not necessary with local development.
-
-Assuming I have node install I'll use the simple web-server http-server
-
-### Install HTTP Server
-```sh
-npm i http-server -g
-```
-
-https://www.npmjs.com/package/http-server
-
-### Server Website
-
-http-server will server a public folder by default where the command is run.
-
-```sh
-cd frontend
-http-server
-```
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
