@@ -22,19 +22,16 @@ body {
     margin-bottom: 24px;
 }
 
-/* Basic link style inside nav (override global link styles!) */
 .nav a {
     color: #333 !important;
     text-decoration: none;
     font-weight: 500;
 }
 
-/* Hover effect */
 .nav a:hover {
     text-decoration: underline;
 }
 
-/* Active page highlight */
 .nav a.active {
     color: #000 !important;
     font-weight: 700;
@@ -65,13 +62,18 @@ h3 {
 }
 
 /* ============================
-   HEADER BLOCK
+   HEADER BLOCK (NAME + TAGLINE)
    ============================ */
 .header {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-bottom: 20px;
+}
+
+.resume-name,
+.resume-tagline {
+    text-align: center;
 }
 
 .subtitle {
@@ -100,6 +102,7 @@ h3 {
     margin-top: 10px;
     font-size: 0.95rem;
     color: #444;
+    text-align: justify;
 }
 
 /* ============================
@@ -143,22 +146,34 @@ h3 {
     font-size: 0.85rem;
     color: #666;
     font-style: italic;
+    text-align: center;
 }
 
 .location {
     font-size: 0.85rem;
     color: #666;
+    text-align: center;
 }
 
-ul {
-    margin: 6px 0 4px 18px;
-    padding: 0;
+/* ============================
+   LISTS (NORMAL BULLETS)
+   ============================ */
+.section ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.section li {
     font-size: 0.9rem;
+    margin-bottom: 4px;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 /* ============================
    GLOBAL LINK STYLE
-   (kept but does NOT override nav)
    ============================ */
 a {
     color: #0059b3;
@@ -170,13 +185,14 @@ a:hover {
 }
 
 /* ============================
-   MISC
+   MISC ELEMENTS
    ============================ */
 .tagline {
     margin-top: 4px;
     font-size: 0.9rem;
     color: #555;
     font-style: italic;
+    text-align: center;
 }
 
 .skill-groups {
@@ -214,7 +230,9 @@ a:hover {
     background-color: #fff;
 }
 
-/* Dutch resume hidden by default */
+/* ============================
+   DUTCH HIDDEN BY DEFAULT
+   ============================ */
 #resume-nl {
     display: none;
 }
@@ -225,6 +243,57 @@ a:hover {
 @media (max-width: 600px) {
     body {
         margin: 20px auto;
-        padding: 0 12px 24px;
     }
+}
+
+/* ============================
+   TYPOGRAPHY POLISH (SAFE PATCH)
+   ============================ */
+
+/* Заголовки секций типа "WORK EXPERIENCE", "EDUCATION" — слева, не по центру */
+.section h2 {
+    text-align: left;
+}
+
+/* Названия должностей / мест учёбы / проектов */
+.job h3,
+.education h3,
+.project h3 {
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Даты и локации под заголовками */
+.date,
+.location {
+    text-align: left;
+    font-style: italic;
+    color: #666;
+}
+
+/* Основной текст профиля и параграфы внутри секций — по ширине */
+.profile,
+.section p {
+    text-align: justify;
+}
+
+/* Пункты списков — тоже по ширине, с аккуратным интервалом */
+.section li {
+    text-align: justify;
+    margin-bottom: 4px;
+}
+
+/* ============================
+   CENTERED RESUME CONTENT BLOCK
+   ============================ */
+
+.resume-content {
+    max-width: 800px;      /* ширина основного CV блока */
+    margin: 0 auto;        /* центрирование по горизонтали */
+    padding: 0 10px;       /* маленькие поля для красоты */
+}
+
+/* Выравнивание всего текста внутри по левому краю */
+.resume-content * {
+    text-align: left;
 }

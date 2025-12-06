@@ -43,4 +43,28 @@ Good progress: React + Vite project running, navigation converted to a component
 - How React Router handles multi-page navigation.
 - How to manage global state (language) at the App.jsx level.
 - How to structure multilingual pages cleanly without duplicating routing.
-24.09
+
+
+## December 6 – Resume Pages, Multilanguage Setup & Project Pages
+
+### What I worked on
+- Added full EN and NL versions of the Resume page using separated components.
+- Improved layout formatting: centered container with left-aligned content for a professional CV look.
+- Implemented EN/NL versions for the Projects page, including links to GitHub and video.
+- Implemented EN/NL versions of the Contact page.
+- Updated navigation to correctly highlight active pages.
+- Restored README after accidental overwrite and added documentation for React/Vite setup.
+
+### Obstacles
+- Lost the entire README due to automatic Vite overwrite and had to recover it from Git history.
+- Difficulties understanding where each component belongs in the React structure.
+- Layout and CSS alignment required multiple adjustments to achieve correct positioning.
+
+### What I learned
+- GitHub's file history can restore deleted or overwritten files.
+- React pages should stay minimal, while real content belongs in components.
+- Central container + left-aligned text creates a clean, readable resume layout.
+- Multi-language architecture is clearer and easier when components are fully separated.
+
+### Progress Summary
+Major progress today: resume, projects, and contact pages are fully working in both languages, navigation is stable, layout is professional, and documentation has been restored and updated. The project is now ready to proceed with further frontend refinement and backend integration.
