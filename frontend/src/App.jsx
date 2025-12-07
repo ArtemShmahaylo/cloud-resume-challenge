@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import './assets/stylesheets/style.css'
+import './assets/stylesheets/default.css'
+import './assets/stylesheets/pages/resume.css'
 
 import Nav from './components/Nav'
 import LanguageSwitcher from './components/LanguageSwitcher'
 
-import Home from './pages/Home'
-import Resume from './pages/Resume'
-import Projects from './pages/Projects'
-import Contacts from './pages/Contacts'
+import Home from './pages/HomePage'
+import Resume from './pages/ResumePage'
+import Projects from './pages/ProjectsPage'
+import Contacts from './pages/ContactsPage'
 
 function App() {
   const [lang, setLang] = useState('en')

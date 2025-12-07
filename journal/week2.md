@@ -68,3 +68,39 @@ Good progress: React + Vite project running, navigation converted to a component
 
 ### Progress Summary
 Major progress today: resume, projects, and contact pages are fully working in both languages, navigation is stable, layout is professional, and documentation has been restored and updated. The project is now ready to proceed with further frontend refinement and backend integration.
+
+
+# Week 2 – Journal Entry  
+## December 7 – Frontend Refactor: Data, Pages, and Home Layout
+
+### What I worked on
+- Continued refactoring the Cloud Resume Challenge frontend following Andrew’s video.
+- Split global and page-specific CSS:  
+  - `default.css` now holds global styles.  
+  - Created `/stylesheets/pages/*` for resume, projects, contacts, home.  
+- Fixed broken import paths caused by Vite and deeply nested folder structure.
+- Created new data file structure (`/data/resumeData.js`, `/data/homeData.js`) to separate content from layout.
+- Fully migrated Resume page to use data-driven rendering (`ResumePage.jsx`).
+- Rebuilt Projects and Contacts pages using the same architecture.
+- Implemented Home page structure with dynamic text, image import, and fade-in animations.
+
+### Obstacles
+- Vite repeatedly threw `Unexpected token` errors because of incorrect import paths.
+- Webstorm/Codespaces cached old file lengths, causing “offset longer than source length” crash.
+- The resume page initially failed due to incorrect relative paths to `/data`.
+- Needed to manually fix CSS imports for every page to ensure styles loaded correctly.
+
+### What I learned
+- Structuring React pages using data files drastically simplifies translation and content updates.
+- Vite import paths must be exact — one wrong `../` breaks everything.
+- Moving all raw text into `/data` keeps components clean and future-proof.
+- Even simple pages (Contacts, Projects) benefit immediately from data-driven rendering.
+- Adding animation (`fade-in`) creates a more polished and professional user experience with minimal code.
+
+### Next steps
+- Improve Home page visual design (photo cropping, layout, button design).
+- Add proper image assets and finalize profile portrait.
+- Expand `homeData.js` and unify design across all pages.
+
+
+21.27

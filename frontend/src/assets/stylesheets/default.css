@@ -1,0 +1,83 @@
+/* =======================================
+   GLOBAL PAGE STYLES
+   ======================================= */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 20px 40px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+}
+
+/* =======================================
+   GLOBAL LINK STYLE
+   ======================================= */
+a {
+    color: #0059b3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =======================================
+   GLOBAL HEADINGS
+   ======================================= */
+h1 {
+    font-size: 2.2rem;
+    margin: 0 0 5px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+h3 {
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+}
+
+/* =======================================
+   GLOBAL NAVIGATION MENU
+   ======================================= */
+.nav {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 24px;
+}
+
+.nav a {
+    color: #333 !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.nav a.active {
+    color: #000 !important;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
+}
+
+/* =======================================
+   MOBILE RESPONSIVENESS
+   ======================================= */
+@media (max-width: 600px) {
+    body {
+        margin: 20px auto;
+    }
+}
