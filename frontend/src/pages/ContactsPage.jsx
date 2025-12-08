@@ -5,12 +5,12 @@ export default function ContactsPage({ lang }) {
   const t = contactsData[lang];
 
   return (
-    <div className="resume-container">
+    <div className="page-container fade-in">
 
-      <h1 className="resume-name">{t.title}</h1>
-      <div className="resume-tagline">{t.tagline}</div>
+      <h1 className="page-title">{t.title}</h1>
+      <div className="page-tagline">{t.tagline}</div>
 
-      <div className="resume-content">
+      <div className="page-content">
         <main>
 
           {/* CONTACT INFORMATION SECTION */}

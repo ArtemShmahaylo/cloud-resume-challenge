@@ -1,11 +1,12 @@
 import '../assets/stylesheets/pages/resume.css';
 import { resumeData } from '../data/resumeData';
 
+
 export default function ResumePage({ lang }) {
   const t = resumeData[lang];
 
   return (
-    <div className="resume-container">
+    <div className="resume-container fade-in">
 
       <h1 className="resume-name">{t.name}</h1>
       <div className="resume-tagline">{t.tagline}</div>

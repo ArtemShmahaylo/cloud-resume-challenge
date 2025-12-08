@@ -4,7 +4,7 @@
 body {
     font-family: Arial, sans-serif;
     max-width: 960px;
-    margin: 40px auto;
+    margin: 0px auto;
     padding: 0 20px 40px;
     line-height: 1.6;
     color: #333;
@@ -52,7 +52,7 @@ h3 {
 .nav {
     display: flex;
     gap: 24px;
-    padding: 16px 0;
+    padding: 0px 0;
     border-bottom: 1px solid #ddd;
     margin-bottom: 24px;
 }
@@ -79,5 +79,24 @@ h3 {
 @media (max-width: 600px) {
     body {
         margin: 20px auto;
+    }
+}
+
+/* =======================================
+   GLOBAL FADE-IN ANIMATION
+   ======================================= */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

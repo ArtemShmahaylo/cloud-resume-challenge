@@ -70,7 +70,6 @@ Good progress: React + Vite project running, navigation converted to a component
 Major progress today: resume, projects, and contact pages are fully working in both languages, navigation is stable, layout is professional, and documentation has been restored and updated. The project is now ready to proceed with further frontend refinement and backend integration.
 
 
-# Week 2 – Journal Entry  
 ## December 7 – Frontend Refactor: Data, Pages, and Home Layout
 
 ### What I worked on
@@ -101,6 +100,3 @@ Major progress today: resume, projects, and contact pages are fully working in b
 - Improve Home page visual design (photo cropping, layout, button design).
 - Add proper image assets and finalize profile portrait.
 - Expand `homeData.js` and unify design across all pages.
-
-
-21.27

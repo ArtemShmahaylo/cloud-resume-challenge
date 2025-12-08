@@ -5,13 +5,12 @@ export default function ProjectsPage({ lang }) {
   const t = projectsData[lang];
 
   return (
-    <div className="resume-container">
+    <div className="page-container fade-in">
 
-      {/* PAGE TITLE */}
-      <h1 className="resume-name">{t.title}</h1>
-      <div className="resume-tagline">{t.tagline}</div>
+      <h1 className="page-title">{t.title}</h1>
+      <div className="page-tagline">{t.tagline}</div>
 
-      <div className="resume-content">
+      <div className="page-content">
         <main>
 
           {t.projects.map((project, index) => (
@@ -35,12 +34,14 @@ export default function ProjectsPage({ lang }) {
                     </span>
                   ))}
                 </div>
+
               </div>
             </section>
           ))}
 
         </main>
       </div>
+
     </div>
   );
 }

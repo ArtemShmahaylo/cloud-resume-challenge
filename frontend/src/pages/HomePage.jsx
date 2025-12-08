@@ -11,11 +11,15 @@ export default function HomePage({ lang }) {
       {/* Name */}
       <h1 className="home-name fade-in">{t.name}</h1>
 
-      <img
-        src={profilePhoto}
-        alt="Artem Shmahaylo"
-        className="home-photo fade-in"
-      />
+      <div className="photo-wrapper fade-in">
+
+        <img 
+          src={profilePhoto} 
+          alt="Artem Shmahaylo" 
+          className="home-photo"
+        />
+      </div>
+
 
       {/* Tagline */}
       <div className="home-tagline fade-in">{t.tagline}</div>
