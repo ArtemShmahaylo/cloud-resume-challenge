@@ -1,6 +1,5 @@
-/* =======================================
-   GLOBAL PAGE STYLES
-   ======================================= */
+@import './breakpoints.css';
+
 body {
     font-family: Arial, sans-serif;
     max-width: 960px;
@@ -11,9 +10,6 @@ body {
     background-color: #fafafa;
 }
 
-/* =======================================
-   GLOBAL LINK STYLE
-   ======================================= */
 a {
     color: #0059b3;
     text-decoration: none;
@@ -23,9 +19,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* =======================================
-   GLOBAL HEADINGS
-   ======================================= */
 h1 {
     font-size: 2.2rem;
     margin: 0 0 5px;
@@ -46,9 +39,6 @@ h3 {
     margin: 0 0 4px;
 }
 
-/* =======================================
-   GLOBAL NAVIGATION MENU
-   ======================================= */
 .nav {
     display: flex;
     gap: 24px;
@@ -73,18 +63,12 @@ h3 {
     border-bottom: 2px solid #000;
 }
 
-/* =======================================
-   MOBILE RESPONSIVENESS
-   ======================================= */
 @media (max-width: 600px) {
     body {
         margin: 20px auto;
     }
 }
 
-/* =======================================
-   GLOBAL FADE-IN ANIMATION
-   ======================================= */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1.6s ease forwards;
@@ -99,4 +83,35 @@ h3 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (--mobile) {
+  body {
+    line-height: 1.7;
+  }
+
+  p,
+  li {
+    text-align: left !important;
+    margin: 0 0 12px 0;
+    padding: 0;
+  }
+
+  section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  h1.page-title,
+  h1.home-name {
+    text-align: center !important;
+  }
+
+  h2, h3 {
+    text-align: left !important;
+  }
 }

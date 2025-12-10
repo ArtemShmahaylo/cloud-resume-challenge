@@ -19,10 +19,6 @@ export const projectsData = {
             label: "GitHub Repository",
             url: "https://github.com/ArtemShmahaylo/cloud-resume-challenge"
           },
-          {
-            label: "YouTube Demo",
-            url: "https://youtu.be/rJxdXfjxMkM"
-          }
         ]
       },
 
@@ -69,10 +65,6 @@ export const projectsData = {
             label: "GitHub Repository",
             url: "https://github.com/ArtemShmahaylo/cloud-resume-challenge"
           },
-          {
-            label: "YouTube Demo",
-            url: "https://youtu.be/rJxdXfjxMkM"
-          }
         ]
       },
 

@@ -1,3 +1,5 @@
+@import '../breakpoints.css';
+
 .home-container {
   text-align: center;
   max-width: 700px;
@@ -48,9 +50,9 @@
 .photo-wrapper {
   width: 320px;
   height: 320px;
-  overflow: hidden;        /* 💥 скрывает края увеличенного фото */
+  overflow: hidden;
   margin: 20px auto;
-  border-radius: 12px;     /* рамка применяется к контейнеру */
+  border-radius: 12px;
   border: 3px solid #ddd;
 }
 
@@ -60,9 +62,22 @@
   object-fit: cover;
   object-position: 100% center;
 
-  /* вот теперь увеличение заработает! */
   transform: scale(1.25);
   transform-origin: center;
 }
 
+@media (--mobile) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+    .photo-wrapper {
+    max-width: calc(100vw - 40px);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
 
