@@ -1,0 +1,25 @@
+.view-counter {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.view-counter-number {
+  font-weight: 700;
+  color: #222;
+}
+
+.view-counter-label {
+  color: #777;
+}
+
+/* Mobile adjustments */
+@media (--mobile) {
+  .view-counter {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+}

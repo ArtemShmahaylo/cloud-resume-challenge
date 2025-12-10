@@ -81,3 +81,21 @@
   }
 }
 
+.view-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.view-counter .count {
+  font-weight: 600;
+}
+
+.view-counter .label {
+  color: #666;
+  font-size: 0.85rem;
+}
