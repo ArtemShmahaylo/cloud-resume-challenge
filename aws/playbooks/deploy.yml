@@ -1,0 +1,51 @@
+---
+- name: Deploy CloudFormation stack
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    # Путь к CloudFormation-шаблону
+    template_path: "{{ (playbook_dir, '..', 'template.yaml') | path_join | realpath }}"
+
+    # Путь к файлу с параметрами CFN (BucketName и т.п.)
+    parameters_file: "{{ (playbook_dir, '..', 'vars', 'parameters.yml') | path_join | realpath }}"
+
+    # Прочитать parameters.yml как YAML → словарь
+    cfn_parameters: "{{ lookup('file', parameters_file) | from_yaml }}"
+
+  vars_files:
+    # Vault с секретами и настройками окружения (STACK_NAME, REGION, ключи)
+    - "{{ playbook_dir }}/vaults/prod.yml"
+
+  tasks:
+
+    - name: Deploy / Update CloudFormation stack
+      amazon.aws.cloudformation:
+        # Креды из vault
+        aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
+        aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+        region: "{{ AWS_REGION }}"
+
+        # Имя стэка
+        stack_name: "{{ STACK_NAME }}"
+        state: present
+
+        # CFN-шаблон и параметры
+        template: "{{ template_path }}"
+        template_parameters: "{{ cfn_parameters }}"
+
+        # IAM capabilities
+        capabilities:
+          - CAPABILITY_NAMED_IAM
+          - CAPABILITY_AUTO_EXPAND
+
+        # Поведение при ошибке
+        on_create_failure: DO_NOTHING
+        create_timeout: 30
+
+      register: cfn_result
+
+    - name: Show CloudFormation outputs
+      debug:
+        var: cfn_result.stack_outputs
