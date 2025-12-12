@@ -109,3 +109,42 @@
 ### Result
 - Cloud Resume site fully live behind CloudFront
 - DNS, SSL, caching, and billing safeguards correctly configured
+## December 12 – Frontend Infrastructure & Backend View Counter Setup
+
+### What I worked on
+- Finalized frontend infrastructure:
+  - Split S3 buckets (`www.<domain>` hosting + root redirect).
+  - Updated and deployed CloudFront distributions.
+  - Configured Route53 alias records for root and `www`.
+  - Verified HTTPS, redirects, and SPA routing.
+- Implemented CloudFront cache invalidation playbook (`invalidate.yml`):
+  - Manual, on-demand usage (`/` and `/*`).
+- Completed AWS billing safety setup:
+  - Enabled AWS Budgets
+  - Reviewed Free Tier usage
+  - Created billing alarms.
+
+- Started backend View Counter implementation:
+  - Introduced AWS SAM for backend infrastructure.
+  - Split templates into `frontend.yaml` and `backend-counter.yaml`.
+  - Defined backend architecture:
+    - DynamoDB
+    - Lambda (Python)
+    - API Gateway (REST).
+  - Aligned SAM configuration with existing project structure.
+  - Installed AWS SAM CLI in Codespaces and locally.
+  - Standardized runtime to `python3.11`.
+  - Added Ansible playbook to build and deploy backend via SAM.
+
+### Key decisions
+- Cache invalidation kept separate from default deploy flow.
+- Backend managed exclusively via SAM + CloudFormation.
+- Avoided preview runtimes shown in AWS Console.
+- Preserved course project structure.
+
+### Result
+- Frontend fully live and stable behind CloudFront.
+- Backend View Counter defined and ready for deployment.
+- Reproducible deploy process established via Ansible.
+
+9.45

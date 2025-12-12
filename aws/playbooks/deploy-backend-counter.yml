@@ -1,0 +1,35 @@
+---
+- name: Deploy backend counter using AWS SAM
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - "{{ playbook_dir }}/vars/parameters.yml"
+
+  vars:
+    aws_dir: "{{ playbook_dir }}/.."
+    template_file: "backend-counter.yaml"
+    stack_name: "crc-backend-counter"
+    region: "eu-north-1"
+
+  tasks:
+
+    - name: Build SAM application
+      command: >
+        sam build
+        --template-file {{ template_file }}
+      args:
+        chdir: "{{ aws_dir }}"
+
+    - name: Deploy SAM application
+      command: >
+        sam deploy
+        --template-file .aws-sam/build/template.yaml
+        --stack-name {{ stack_name }}
+        --region {{ region }}
+        --capabilities CAPABILITY_IAM
+        --no-confirm-changeset
+        --no-fail-on-empty-changeset
+      args:
+        chdir: "{{ aws_dir }}"

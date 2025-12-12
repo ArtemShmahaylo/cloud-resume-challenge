@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Counter of visits (DynamoDB, Lambda и API Gateway)
+
+Globals:
+  Function:
+    Timeout: 10
+    Runtime: python3.11
+    MemorySize: 128
+
+Resources:
+  CounterTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CounterTable
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  CounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: function/
+      Handler: handler.lambda_handler
+
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref CounterTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CounterTable
+      Events:
+        GetCounter:
+          Type: Api
+          Properties:
+            Path: /counter
+            Method: get
+        IncrementCounter:
+          Type: Api
+          Properties:
+            Path: /counter
+            Method: post
+        ResetCounter:
+          Type: Api
+          Properties:
+            Path: /counter
+            Method: delete
+
+Outputs:
+  CounterApi:
+    Description: "API Gateway endpoint URL"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/counter/"
+  
+  CounterFunction:
+    Description: "Lambda Function ARN"
+    Value: !GetAtt CounterFunction.Arn
+  
+  CounterTable:
+    Description: "DynamoDB Table Name"
+    Value: !Ref CounterTable

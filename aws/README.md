@@ -52,3 +52,60 @@ Whith following commands the issue was resolved:
 ```sh
 ansible-galaxy collection install -r requirements.txt
 ```
+
+
+## Prerequisites – AWS SAM CLI
+
+This project uses AWS SAM (Serverless Application Model) for deploying the backend View Counter (Lambda + DynamoDB + HTTP API).
+
+The AWS SAM CLI must be installed both locally and in GitHub Codespaces in order to build and deploy the backend.
+
+--------------------------------------------------
+
+Installing AWS SAM CLI (Linux / GitHub Codespaces)
+
+Run the following commands in the terminal:
+
+```sh
+curl -Lo sam.zip https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+unzip sam.zip -d sam-installation
+sudo ./sam-installation/install
+```
+
+After installation, verify that SAM CLI is available:
+
+```sh
+sam --version
+```
+
+The sam binary is installed globally (typically under /usr/local/bin) and can be used from any project directory.
+
+--------------------------------------------------
+
+Installing AWS SAM CLI (Windows – Local VS Code)
+
+On Windows, install AWS SAM CLI using winget or the official installer.
+
+Using winget (recommended):
+
+```bash
+winget install Amazon.SAM-CLI
+```
+
+After installation, restart the terminal and verify:
+
+```bash
+sam --version
+```
+
+--------------------------------------------------
+
+Required Tools
+
+The following tools must be available in the environment:
+
+- AWS CLI
+- Docker
+- Python 3.x
+- AWS SAM CLI
+
