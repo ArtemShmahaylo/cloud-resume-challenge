@@ -29,79 +29,79 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
 
-  # WWWBucketPolicy:
-  #   Type: AWS::S3::BucketPolicy
-  #   Properties:
-  #     Bucket: !Ref WWWBucket
-  #     PolicyDocument:
-  #       Statement:
-  #         - Sid: AllowCloudFrontRead
-  #           Effect: Allow
-  #           Principal:
-  #             Service: cloudfront.amazonaws.com
-  #           Action: s3:GetObject
-  #           Resource: !Sub 'arn:aws:s3:::www.${BucketName}/*'
-  #           Condition:
-  #             StringEquals:
-  #               AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${WWWCloudFrontDistribution}'
+  WWWBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WWWBucket
+      PolicyDocument:
+        Statement:
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub 'arn:aws:s3:::www.${BucketName}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${WWWCloudFrontDistribution}'
 
-  # WWWOAC:
-  #   Type: AWS::CloudFront::OriginAccessControl
-  #   Properties:
-  #     OriginAccessControlConfig:
-  #       Name: !Sub '${AWS::StackName}-WWW-OAC'
-  #       OriginAccessControlOriginType: s3
-  #       SigningBehavior: always
-  #       SigningProtocol: sigv4
+  WWWOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-WWW-OAC'
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
 
-  # WWWCloudFrontDistribution:
-  #   Type: AWS::CloudFront::Distribution
-  #   Properties:
-  #     DistributionConfig:
-  #       Enabled: true
-  #       HttpVersion: http2and3
-  #       IPV6Enabled: true
-  #       PriceClass: !Ref PriceClass
+  WWWCloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        PriceClass: !Ref PriceClass
 
-  #       Aliases: !If
-  #         - HasCertificate
-  #         - [!Sub 'www.${BucketName}']
-  #         - !Ref AWS::NoValue
+        Aliases: !If
+          - HasCertificate
+          - [!Sub 'www.${BucketName}']
+          - !Ref AWS::NoValue
 
-  #       ViewerCertificate: !If
-  #         - HasCertificate
-  #         - AcmCertificateArn: !Ref ACMCertificateArn
-  #           SslSupportMethod: sni-only
-  #           MinimumProtocolVersion: TLSv1.2_2021
-  #         - CloudFrontDefaultCertificate: true
+        ViewerCertificate: !If
+          - HasCertificate
+          - AcmCertificateArn: !Ref ACMCertificateArn
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+          - CloudFrontDefaultCertificate: true
 
-  #       DefaultRootObject: index.html
+        DefaultRootObject: index.html
 
-  #       Origins:
-  #         - Id: WWWS3Origin
-  #           DomainName: !GetAtt WWWBucket.RegionalDomainName
-  #           S3OriginConfig:
-  #             OriginAccessIdentity: ''
-  #           OriginAccessControlId: !GetAtt WWWOAC.Id
+        Origins:
+          - Id: WWWS3Origin
+            DomainName: !GetAtt WWWBucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+            OriginAccessControlId: !GetAtt WWWOAC.Id
 
-  #       DefaultCacheBehavior:
-  #         TargetOriginId: WWWS3Origin
-  #         ViewerProtocolPolicy: redirect-to-https
-  #         AllowedMethods: [GET, HEAD, OPTIONS]
-  #         CachedMethods: [GET, HEAD, OPTIONS]
-  #         Compress: true
-  #         CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
-  #         ResponseHeadersPolicyId: 67f7725c-6f97-4210-82d7-5512b31e9d03
+        DefaultCacheBehavior:
+          TargetOriginId: WWWS3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS]
+          CachedMethods: [GET, HEAD, OPTIONS]
+          Compress: true
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          ResponseHeadersPolicyId: 67f7725c-6f97-4210-82d7-5512b31e9d03
 
-  #       CustomErrorResponses:
-  #         - ErrorCode: 403
-  #           ResponseCode: 200
-  #           ResponsePagePath: /index.html
-  #           ErrorCachingMinTTL: 0
-  #         - ErrorCode: 404
-  #           ResponseCode: 200
-  #           ResponsePagePath: /index.html
-  #           ErrorCachingMinTTL: 0
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 0
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 0
 
 
   ##################################################
@@ -116,53 +116,53 @@ Resources:
           HostName: !Sub 'www.${BucketName}'
           Protocol: https
 
-#   RootRedirectCloudFront:
-#     Type: AWS::CloudFront::Distribution
-#     Properties:
-#       DistributionConfig:
-#         Enabled: true
-#         HttpVersion: http2and3
-#         IPV6Enabled: true
-#         PriceClass: !Ref PriceClass
+  RootRedirectCloudFront:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        PriceClass: !Ref PriceClass
 
-#         Aliases: !If
-#           - HasCertificate
-#           - [!Ref BucketName]
-#           - !Ref AWS::NoValue
+        Aliases: !If
+          - HasCertificate
+          - [!Ref BucketName]
+          - !Ref AWS::NoValue
 
-#         ViewerCertificate: !If
-#           - HasCertificate
-#           - AcmCertificateArn: !Ref ACMCertificateArn
-#             SslSupportMethod: sni-only
-#             MinimumProtocolVersion: TLSv1.2_2021
-#           - CloudFrontDefaultCertificate: true
+        ViewerCertificate: !If
+          - HasCertificate
+          - AcmCertificateArn: !Ref ACMCertificateArn
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+          - CloudFrontDefaultCertificate: true
 
-#         Origins:
-#           - Id: RootRedirectOrigin
-#             DomainName: !Select [2, !Split ["/", !GetAtt RootRedirectBucket.WebsiteURL]]
-#             CustomOriginConfig:
-#               OriginProtocolPolicy: http-only
-#               HTTPPort: 80
-#               HTTPSPort: 443
+        Origins:
+          - Id: RootRedirectOrigin
+            DomainName: !Select [2, !Split ["/", !GetAtt RootRedirectBucket.WebsiteURL]]
+            CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+              HTTPPort: 80
+              HTTPSPort: 443
 
-#         DefaultCacheBehavior:
-#           TargetOriginId: RootRedirectOrigin
-#           ViewerProtocolPolicy: allow-all
-#           AllowedMethods: [GET, HEAD]
-#           CachedMethods: [GET, HEAD]
-#           Compress: true
-#           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        DefaultCacheBehavior:
+          TargetOriginId: RootRedirectOrigin
+          ViewerProtocolPolicy: allow-all
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
 
-# Outputs:
-#   WWWDistributionURL:
-#     Value: !If
-#       - HasCertificate
-#       - !Sub 'https://www.${BucketName}'
-#       - !Sub 'https://${WWWCloudFrontDistribution.DomainName}'
+Outputs:
+  WWWDistributionURL:
+    Value: !If
+      - HasCertificate
+      - !Sub 'https://www.${BucketName}'
+      - !Sub 'https://${WWWCloudFrontDistribution.DomainName}'
 
-#   RootRedirectURL:
-#     Value: !If
-#       - HasCertificate
-#       - !Sub 'https://${BucketName}'
-#       - !Sub 'https://${RootRedirectCloudFront.DomainName}'
+  RootRedirectURL:
+    Value: !If
+      - HasCertificate
+      - !Sub 'https://${BucketName}'
+      - !Sub 'https://${RootRedirectCloudFront.DomainName}'
  
