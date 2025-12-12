@@ -12,10 +12,11 @@
     parameters_file: "{{ (playbook_dir, '..', 'vars', 'parameters.yml') | path_join | realpath }}"
 
     # Прочитать parameters.yml как YAML → словарь
-    cfn_parameters: "{{ lookup('file', parameters_file) | from_yaml }}"
+    cfn_parameters:
+      BucketName: 'artemshmahaylo.com'
+      ACMCertificateArn: 'arn:aws:acm:us-east-1:471112966659:certificate/aa81721a-cce3-495d-8933-da92cf5ed905'
 
   vars_files:
-    # Vault с секретами и настройками окружения (STACK_NAME, REGION, ключи)
     - "{{ playbook_dir }}/vaults/prod.yml"
 
   tasks:

@@ -46,3 +46,9 @@ Whith following commands the issue was resolved:
 /usr/local/py-utils/venvs/ansible/bin/python -m pip install --upgrade pip
 /usr/local/py-utils/venvs/ansible/bin/python -m pip install --upgrade botocore boto3
 ```
+
+## Install Deps for Ansible
+
+```sh
+ansible-galaxy collection install -r requirements.txt
+```

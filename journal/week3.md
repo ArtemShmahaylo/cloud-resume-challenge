@@ -46,3 +46,30 @@
 - Prepare the frontend for integration with **AWS API Gateway + Lambda**.
 - Add production-ready environment switching.
 - Continue with the next video in Cloud Resume Challenge.
+
+
+## December 11 – Domain Setup, Ansible, CloudFormation, and First IaC Deployment
+
+### What I worked on
+- Purchased a custom domain and configured DNS using **Route53 hosted zone**.
+- Connected the domain registrar to AWS by updating name servers.
+- Decided to deploy the project on the **main AWS account** (non–free tier) for a realistic setup.
+- Created an initial **CloudFormation template** to provision an S3 bucket.
+- Built the **Ansible project structure** for Infrastructure as Code.
+- Implemented an **Ansible playbook** to deploy and update CloudFormation stacks.
+- Configured **ansible-vault** to securely store AWS credentials.
+- Added a deploy wrapper script to simplify execution.
+- Successfully deployed the first AWS resource (S3 bucket) via **Ansible + CloudFormation**.
+- Resolved Git branch divergence and manually fixed a merge conflict using rebase.
+
+### Obstacles
+- Significant incompatibilities between the course material and modern versions of Ansible and amazon.aws modules.
+- Deprecated and mutually exclusive CloudFormation parameters caused repeated task failures.
+- Codespaces used a restricted Python environment for Ansible, breaking boto3/botocore imports.
+- Required deep debugging to identify the correct Ansible Python venv and manually upgrade pip and AWS SDK packages.
+- Git rebase exposed a merge conflict in the frontend that had to be resolved manually.
+
+### Next Steps
+- Extend the CloudFormation template with S3 website hosting and access policies.
+- Continue with the next Cloud Resume Challenge video.
+- Move toward CloudFront integration and public site delivery.
