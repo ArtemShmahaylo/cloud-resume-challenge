@@ -73,3 +73,39 @@
 - Extend the CloudFormation template with S3 website hosting and access policies.
 - Continue with the next Cloud Resume Challenge video.
 - Move toward CloudFront integration and public site delivery.
+
+
+## December 12 – CloudFront, DNS, Budgets & Cache Invalidation
+
+### What I worked on
+- Finalized CloudFormation stack update:
+  - S3 buckets split into:
+    - `www.<domain>` as primary hosting bucket
+    - root domain as redirect bucket
+  - CloudFront distributions updated and deployed successfully.
+- Configured Route53 hosted zone:
+  - Alias record for root domain → CloudFront
+  - Alias record for `www` → CloudFront
+- Verified end-to-end flow:
+  - HTTPS works
+  - www / root redirect works
+  - SPA routing works via CloudFront custom error responses.
+- Implemented Ansible playbook for CloudFront cache invalidation (`invalidate.yml`):
+  - Supports manual invalidation of `/` and `/*`
+  - Designed as an on-demand operational tool (not part of default deploy flow).
+- Completed AWS billing safety tasks:
+  - Enabled AWS Budgets
+  - Reviewed AWS Free Tier usage
+  - Created billing alarms to prevent unexpected costs.
+
+### Key decisions
+- Cache invalidation kept as a separate, manual playbook:
+  - Not executed on every deploy
+  - Used only when cache policies or behavior require it.
+- Followed best practice:
+  - `index.html` → no-store
+  - static assets → long-lived immutable cache
+
+### Result
+- Cloud Resume site fully live behind CloudFront
+- DNS, SSL, caching, and billing safeguards correctly configured
