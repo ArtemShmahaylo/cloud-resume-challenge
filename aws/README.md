@@ -60,7 +60,7 @@ This project uses AWS SAM (Serverless Application Model) for deploying the backe
 
 The AWS SAM CLI must be installed both locally and in GitHub Codespaces in order to build and deploy the backend.
 
---------------------------------------------------
+
 
 Installing AWS SAM CLI (Linux / GitHub Codespaces)
 
@@ -80,7 +80,6 @@ sam --version
 
 The sam binary is installed globally (typically under /usr/local/bin) and can be used from any project directory.
 
---------------------------------------------------
 
 Installing AWS SAM CLI (Windows – Local VS Code)
 
@@ -98,8 +97,6 @@ After installation, restart the terminal and verify:
 sam --version
 ```
 
---------------------------------------------------
-
 Required Tools
 
 The following tools must be available in the environment:
@@ -109,3 +106,122 @@ The following tools must be available in the environment:
 - Python 3.x
 - AWS SAM CLI
 
+
+## AWS CLI Installation (GitHub Codespaces / Linux)
+
+AWS CLI is required for deploying backend infrastructure using AWS SAM.
+It must be installed only in the environment where `sam deploy` is executed.
+
+IMPORTANT:
+AWS CLI should NOT be installed from the project root directory.
+Always use a temporary system directory to avoid polluting the repository.
+
+Correct installation steps:
+
+1. Move to a temporary directory:
+```sh
+cd /tmp
+```
+
+2. Download AWS CLI installer:
+```sh
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+```
+
+3. Unzip the installer:
+```sh
+unzip awscliv2.zip
+```
+
+4. Install AWS CLI globally:
+```sh
+sudo ./aws/install
+```
+
+The installer places the `aws` binary in a global system path
+(e.g. /usr/local/bin), independent of the project directory.
+
+5. Verify installation:
+```sh
+aws --version
+```
+
+Expected output:
+aws-cli/2.x.x Python/3.x Linux/...
+
+Notes:
+- AWS CLI installation is a system-level operation.
+- Installation artifacts (zip files and folders) should never be committed.
+- The project repository remains clean and unchanged.
+
+
+## AWS Credentials Setup (AWS CLI)
+
+AWS credentials are required for deploying infrastructure using AWS SAM.
+Credentials are managed by AWS CLI and are NOT stored in Ansible playbooks
+or committed to the repository.
+
+Credentials must be configured only in the environment where deployment
+commands are executed (e.g. GitHub Codespaces).
+
+---
+
+### Configure AWS credentials using a named profile
+
+```bash
+aws configure --profile prod
+```
+
+You will be prompted for the following values:
+
+```text
+AWS Access Key ID:
+AWS Secret Access Key:
+Default region name:
+Default output format:
+```
+
+After configuration, credentials are stored locally in:
+
+```text
+~/.aws/credentials
+~/.aws/config
+```
+
+These files must never be committed to the repository.
+
+---
+
+### Activate the AWS profile
+
+```bash
+export AWS_PROFILE=prod
+```
+
+This ensures that AWS CLI, SAM, and Ansible use the correct account and region.
+
+---
+
+### Verify credentials
+
+```bash
+aws sts get-caller-identity
+```
+
+Expected result:
+
+```text
+- AWS Account ID
+- User or Role ARN
+```
+
+If this command succeeds, AWS authentication is correctly configured and
+backend deployment via SAM is ready to proceed.
+
+---
+
+### Notes
+
+- Credentials are resolved via the standard AWS SDK credential chain.
+- Ansible playbooks invoking `sam` rely on AWS CLI authentication.
+- No AWS credentials are defined inside playbooks or templates.

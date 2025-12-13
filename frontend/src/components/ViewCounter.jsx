@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function ViewCounter() {
   const [count, setCount] = useState(0);
-  const endpoint = ""; // пусто! потому что мок живёт на /counter
+  const endpoint = "https://57y53b4ht0.execute-api.us-east-1.amazonaws.com/Prod/counter/"; // пусто! потому что мок живёт на /counter
 
   useEffect(() => {
     fetch("/counter")

@@ -5,7 +5,7 @@ Description: Counter of visits (DynamoDB, Lambda и API Gateway)
 Globals:
   Function:
     Timeout: 10
-    Runtime: python3.11
+    Runtime: python3.12
     MemorySize: 128
 
 Resources:

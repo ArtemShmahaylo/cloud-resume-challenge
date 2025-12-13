@@ -1,4 +1,4 @@
-BucketName: artemshmahaylo.com
+BucketName: www.artemshmahaylo.com
 aws_region: us-east-1
 built_dir: "../../frontend/dist"
 build_dir: "../../frontend/dist"
