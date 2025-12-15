@@ -1,159 +1,169 @@
-# Frontend Technical Specification
+# Frontend – Cloud Resume Website
 
-- Create a static website that serves an html resume
+## Overview
+The frontend is a static, single-page web application that presents my resume and projects.
+It is built as part of the Cloud Resume Challenge and deployed as a static site behind Amazon CloudFront.
+The frontend consumes a backend API to display a persistent view counter.
 
-## Resume Format Consideration
+---
 
-I live in Belgium and CV's in word/pdf format are suppose to include:
-- foto
-- date of birth
-- nationality
-- full address
-- email address
-- GSM number
-- LinkedIn link
-- GitHub link
-- Short Profile - 2-3 sentences
+## Resume Format Considerations
+Living and applying for jobs in Belgium imposes specific CV conventions.
+A typical Belgian CV is expected to include:
+- Photo
+- Date of birth
+- Nationality
+- Full address
+- Email address
+- Mobile phone number
+- LinkedIn profile
+- GitHub profile
+- Short professional summary (2–3 sentences)
 - Work experience
 - Education
-- Hard and Soft skills
+- Hard and soft skills
 
-I will be using [Europass](.frontend/docs/Europass_CV.pdf) template as a basis of my resume
+To align with these expectations, the **Europass CV format** was chosen as a reference.
 
-### Europass CV Generation
-
-I do not know HTML, so I will let GenAI do the heavy lifting and generate out HTML and possibly CSS and from there I will manually refactor to my preferred standard.
-
-Prompt to ChatGPT 5.1
-```text
-- EN/NL language support
-- minimalist HTML structure
-- inline CSS (no frameworks)
-- Belgian CV conventions
-- only Belgian education + AWS/CS50
-- a language switcher with minimal JS
-- UTF-8 + responsive viewport
-- clean, simple CSS selectors
-```
-
-Image provided to prompt:
+Reference document:
 ![](./docs/Europass_CV_Page_1.jpg)
 ![](./docs/Europass_CV_Page_2.jpg)
 
-This is [generated output](./docs/25.11.cv-html.html) which I will refactor.
+---
 
-This is what the generated HTML looks like unaltered:
+## Initial HTML Generation
+As a starting point, an initial HTML draft was generated using GenAI to speed up the process.
 
-![](./docs/25.11.cv-html-rendered-01.png)
+Generation goals:
+- English and Dutch language support (EN/NL)
+- Minimalist HTML structure
+- Inline CSS (no frameworks)
+- Belgian CV conventions
+- Simple JavaScript language switcher
+- UTF-8 encoding
+- Responsive viewport
+- Clean and minimal CSS selectors
 
-## HTML Aljustments
+The generated HTML served only as a draft and reference.
 
-- UTF-8 will support most languages, I plan to use English and Dutch
-- Because I will be applying mobile styling to the website I'll include the viewport meta tag "width=device-width" so mobile styling scales normally.
-- I will extract my styles into its own stylesheet after I am happy with my HTML markup.
-- I will simplify my HTML markup css selector to be as minimal as possible.
-- I am using 2-space soft tabs for indentation. This is the default configuration in my editor and keeps the HTML easy to read. If needed, I can adjust this later for consistency across the project.
+---
 
-I performed a full manual refactor with the help of ChatGPT (GPT-5.1), including:
-- rewriting the entire HTML layout
-- adding bilingual EN/NL support
-- restructuring sections for clarity and semantic correctness
-- improving accessibility
-- creating minimalistic CSS
-- adding a JavaScript-based language switcher
-- aligning the resume with Belgian CV conventions
-- removing all irrelevant content not suitable for a cloud resume project
+## Manual HTML Refactor
+The generated output was fully refactored manually to meet quality and maintainability standards.
 
-The final [`index.html`](./public/index.html) represents my own refactored work based on an AI draft,  
-following the Bootcamp requirement to improve and personalize the generated output.
+Refactor included:
+- Complete rewrite of the HTML structure
+- Semantic sectioning
+- Bilingual EN/NL support
+- Accessibility improvements
+- Minimal, readable CSS
+- JavaScript-based language switcher
+- Removal of irrelevant or non-cloud-related content
+- Alignment with Cloud Resume Challenge requirements
 
-This is what the rendered final HTML looks like:
+The final `index.html` represents my own refactored work based on an AI-generated draft.
 
-![](./docs/resume-rendered-en-01.png)
-![](./docs/resume-rendered-nl-01.png)
+---
 
-## Serve Static Website Locally
+## Local Static Development
+To work with external stylesheets and test changes locally, the site can be served as a static website.
+This is optional for local development but useful in cloud-based environments such as GitHub Codespaces.
 
-I need to serve my static website locally so I can start using stylesheets externally from my HTML page in a Cloud Developer Encitonment (CDE)
-
-> This is not necessary with local development.
-
-Assuming I have node install I'll use the simple web-server http-server
-
-### Install HTTP Server
-```sh
-npm i http-server -g
-```
-
-https://www.npmjs.com/package/http-server
-
-### Server Website
-
-http-server will server a public folder by default where the command is run.
-
-```sh
+### Local static server
+```bash
+npm install -g http-server
 cd frontend
 http-server
 ```
 
-
-## Frontend Framework Consideration
-
-- Using **React** for component-based UI.
-- Using **Vite.js** for fast development server and simple project structure.
-- Added **React Router** for navigation between pages.
-- Implemented a simple **multi-language system (EN/NL)** using separate components.
+By default, the server exposes the current directory over HTTP.
 
 ---
 
-## Frontend Setup Steps
+## Frontend Framework Choice
+After the initial static HTML phase, the frontend was migrated to a modern component-based setup.
 
-### 1. Create React project with Vite
+Technologies used:
+- React for component-based UI
+- Vite for fast development and optimized builds
+- React Router for client-side routing
+- Simple EN/NL language handling via separate components
+
+---
+
+## Project Structure
+```
+├── frontend/
+│ ├── public/
+│ │ └── index.html
+│ ├── src/
+│ │ ├── components/
+│ │ ├── data/
+│ │ ├── pages/
+│ │ └── assets/
+│ ├── docs/ # screenshots + reference docs
+│ ├── dist/ # build output (generated)
+│ ├── node_modules/ # dependencies (generated, not committed)
+│ ├── README.md
+│ ├── package.json
+│ └── vite.config.js
+```
+
+---
+
+## Frontend Setup
+
+**Create React project using Vite**
 ```bash
 npm create vite@latest
 cd frontend
 npm install
 ```
 
-### 2. Install React Router
+**Install React Router**
 ```bash
 npm install react-router-dom
 ```
 
-### 3. Basic project structure
-```
-src/
-  components/ (Nav, LanguageSwitcher, ResumeEN/NL, ProjectsEN/NL, ContactEN/NL)
-  pages/ (Home, Resume, Projects, Contact)
-  App.jsx
-  main.jsx
-```
+**Enable routing**
 
-### 4. Enable router in main.jsx
+main.jsx:
 ```jsx
 <BrowserRouter>
   <App />
 </BrowserRouter>
 ```
 
-### 5. Define routes in App.jsx
+App.jsx:
 ```jsx
 <Routes>
   <Route path="/" element={<Home />} />
-  <Route path="/resume" element={<Resume lang={lang} />} />
-  <Route path="/projects" element={<Projects lang={lang} />} />
-  <Route path="/contact" element={<Contact lang={lang} />} />
+  <Route path="/resume" element={<Resume />} />
+  <Route path="/projects" element={<Projects />} />
+  <Route path="/contact" element={<Contact />} />
 </Routes>
 ```
 
-### 6. Run the development server
+**Run development server**
 ```bash
 npm run dev
 ```
 
 ---
 
-## Summary
+## Production Build and Deployment
+The frontend is built into static assets and deployed to Amazon S3.
 
-React + Vite provide a fast and lightweight setup for the Cloud Resume Challenge.  
-Routing, navigation, and multi-language support (EN/NL) were implemented using simple, maintainable components.
+Deployment flow:
+1. Build the production bundle
+2. Upload assets to S3
+3. Invalidate CloudFront cache
+
+Infrastructure is created once; frontend code is updated independently.
+
+---
+
+## Summary
+The frontend combines a clean resume presentation with modern tooling.
+React and Vite provide a lightweight and maintainable setup, while CloudFront ensures fast global delivery.
+The result is a production-ready static site with a dynamic backend-powered view counter.

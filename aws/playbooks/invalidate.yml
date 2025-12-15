@@ -18,7 +18,7 @@
     - name: Create CloudFront invalidation
       community.aws.cloudfront_invalidation:
         distribution_id: "{{ cloudfront_distribution_id }}"
-        paths: "{{ invalidation_paths }}"
+        target_paths: "{{ invalidation_paths }}"
         aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
         aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
         region: us-east-1
@@ -28,5 +28,3 @@
       ansible.builtin.debug:
         msg:
           - "CloudFront invalidation created"
-          - "Invalidation ID: {{ invalidation_result.invalidation.Id }}"
-          - "Status: {{ invalidation_result.invalidation.Status }}"

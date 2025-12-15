@@ -177,4 +177,28 @@
 - Backend view counter fully deployed and operational.
 - Public API endpoint responding correctly.
 - Backend ready for frontend integration.
-7.34
+
+
+## December 14–15 – Frontend ↔ Backend Integration (View Counter)
+
+### What I worked on
+- Connected the React frontend view counter to the live backend API (`API Gateway + Lambda + DynamoDB`).
+- Fixed frontend logic to prevent double increments caused by React dev behavior.
+- Built the production frontend bundle and deployed it to S3.
+- Synced static assets with long-lived immutable caching and uploaded `index.html` with `no-store`.
+- Invalidated CloudFront cache to ensure the new frontend was served immediately.
+- Verified end-to-end functionality:
+  - Page load triggers exactly one counter increment.
+  - Counter increases by +1 on each page refresh.
+  - API endpoint responds correctly in production.
+
+### Key decisions
+- Treated infrastructure (S3, CloudFront, DNS) as immutable after initial setup.
+- Limited changes to frontend code and content deployment only (no CloudFormation updates).
+- Kept backend and frontend deployments strictly separated.
+
+### Result
+- Fully working production website with a persistent backend-powered view counter.
+- Clean, repeatable deployment flow without infrastructure churn.
+
+# Cloud Resume Challenge - COMPLETED
