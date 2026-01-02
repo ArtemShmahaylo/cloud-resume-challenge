@@ -1,34 +1,37 @@
 import { NavLink } from "react-router-dom";
+import { navData } from "../data/navData";
 
-function Nav() {
+function Nav({ lang }) {
+  const t = navData[lang] || navData.en;
+
   return (
     <nav className="nav">
       <NavLink 
         to="/" 
         className={({ isActive }) => isActive ? "active" : ""}
       >
-        Home
+        {t.home}
       </NavLink>
 
       <NavLink 
         to="/resume" 
         className={({ isActive }) => isActive ? "active" : ""}
       >
-        Resume
+        {t.resume}
       </NavLink>
 
       <NavLink 
         to="/projects" 
         className={({ isActive }) => isActive ? "active" : ""}
       >
-        Projects
+        {t.projects}
       </NavLink>
 
       <NavLink 
         to="/contact" 
         className={({ isActive }) => isActive ? "active" : ""}
       >
-        Contact
+        {t.contact}
       </NavLink>
     </nav>
   );

@@ -2,7 +2,7 @@ import '../assets/stylesheets/pages/projects.css';
 import { projectsData } from '../data/projectsData';
 
 export default function ProjectsPage({ lang }) {
-  const t = projectsData[lang];
+  const t = projectsData[lang] || projectsData.en;
 
   return (
     <div className="page-container fade-in">

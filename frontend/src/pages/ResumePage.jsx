@@ -3,7 +3,7 @@ import { resumeData } from '../data/resumeData';
 
 
 export default function ResumePage({ lang }) {
-  const t = resumeData[lang];
+  const t = resumeData[lang] || resumeData.en;
 
   return (
     <div className="resume-container fade-in">

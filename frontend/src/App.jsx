@@ -14,12 +14,12 @@ import Contacts from './pages/ContactsPage'
 
 function App() {
   const [lang, setLang] = useState('en')
-  const [count, setCount] = useState(0) // пока не используем, но оставляем как у Эндрю
+  const [count, setCount] = useState(0)
 
   return (
     <>
       {/* Меню навигации — показывается на всех страницах */}
-      <Nav />
+      <Nav lang={lang} />
 
       {/* Переключатель языка — тоже на всех страницах */}
       <LanguageSwitcher lang={lang} setLang={setLang} />

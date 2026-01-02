@@ -2,9 +2,10 @@ import '../assets/stylesheets/pages/home.css';
 import { homeData } from '../data/homeData';
 import profilePhoto from '../assets/images/profile_photo.jpg';
 import ViewCounter from "../components/ViewCounter";
+import { Link } from "react-router-dom";
 
 export default function HomePage({ lang }) {
-  const t = homeData[lang];
+  const t = homeData[lang] || homeData.en;
 
   return (
     <div className="home-container">
@@ -35,9 +36,13 @@ export default function HomePage({ lang }) {
       {/* Buttons */}
       <div className="home-buttons fade-in">
         {t.buttons.map((btn, index) => (
-          <a key={index} className="home-btn" href={btn.link}>
+          <Link
+            key={index}
+            className="home-btn"
+            to={`${btn.link}?lang=${lang}`}
+          >
             {btn.label}
-          </a>
+          </Link>
         ))}
       </div>
 

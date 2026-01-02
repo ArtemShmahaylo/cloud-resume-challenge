@@ -15,6 +15,13 @@ export default function LanguageSwitcher({ lang, setLang }) {
       >
         NL
       </button>
+      <button
+        type="button"
+        onClick={() => setLang('ua')}
+        disabled={lang === 'ua'}
+      >
+        UA
+      </button>
     </div>
   )
 }

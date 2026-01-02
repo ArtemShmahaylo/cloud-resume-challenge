@@ -2,7 +2,7 @@ import '../assets/stylesheets/pages/contacts.css';
 import { contactsData } from '../data/contactsData';
 
 export default function ContactsPage({ lang }) {
-  const t = contactsData[lang];
+  const t = contactsData[lang] || contactsData.en;
 
   return (
     <div className="page-container fade-in">
