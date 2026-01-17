@@ -5,6 +5,9 @@ The frontend is a static, single-page web application that presents my resume an
 It is built as part of the Cloud Resume Challenge and deployed as a static site behind Amazon CloudFront.
 The frontend consumes a backend API to display a persistent view counter.
 
+The application supports **multiple languages (EN / NL / UA)** with language-aware navigation and routing,
+while keeping all user-facing text separated from UI components.
+
 ---
 
 ## Resume Format Considerations
@@ -77,65 +80,57 @@ http-server
 ```
 
 By default, the server exposes the current directory over HTTP.
-
----
-
-## Frontend Framework Choice
+Frontend Framework Choice
 After the initial static HTML phase, the frontend was migrated to a modern component-based setup.
-
 Technologies used:
-- React for component-based UI
-- Vite for fast development and optimized builds
-- React Router for client-side routing
-- Simple EN/NL language handling via separate components
-
----
-
-## Project Structure
+* React for component-based UI
+* Vite for fast development and optimized builds
+* React Router for client-side routing
+* Language-aware routing and navigation (EN / NL / UA)
+* Separation of content and presentation via language-specific data files
+All user-facing text, including section titles and navigation labels, is stored in structured data files. This keeps components clean and makes adding new languages straightforward.
+Project Structure
 ```
 ├── frontend/
 │ ├── public/
 │ │ └── index.html
 │ ├── src/
 │ │ ├── components/
-│ │ ├── data/
+│ │ ├── data/        # language-specific content (EN / NL / UA)
 │ │ ├── pages/
 │ │ └── assets/
-│ ├── docs/ # screenshots + reference docs
-│ ├── dist/ # build output (generated)
-│ ├── node_modules/ # dependencies (generated, not committed)
+│ ├── docs/          # screenshots + reference docs
+│ ├── dist/          # build output (generated)
+│ ├── node_modules/  # dependencies (generated, not committed)
 │ ├── README.md
 │ ├── package.json
 │ └── vite.config.js
 ```
 
----
+Frontend Setup
 
-## Frontend Setup
-
-**Create React project using Vite**
-```bash
+Create React project using Vite
+```
 npm create vite@latest
 cd frontend
 npm install
 ```
 
-**Install React Router**
-```bash
+Install React Router
+```
 npm install react-router-dom
 ```
 
-**Enable routing**
-
+Enable routing
 main.jsx:
-```jsx
+```
 <BrowserRouter>
   <App />
 </BrowserRouter>
 ```
 
 App.jsx:
-```jsx
+```
 <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/resume" element={<Resume />} />
@@ -144,26 +139,22 @@ App.jsx:
 </Routes>
 ```
 
-**Run development server**
-```bash
+Run development server
+```
 npm run dev
 ```
 
----
-
 ## Production Build and Deployment
+
 The frontend is built into static assets and deployed to Amazon S3.
 
-Deployment flow:
-1. Build the production bundle
-2. Upload assets to S3
+**Deployment flow:**
+1. Build the production bundle with Vite
+2. Sync generated assets to S3
 3. Invalidate CloudFront cache
 
-Infrastructure is created once; frontend code is updated independently.
-
----
+Infrastructure is provisioned once; frontend updates are deployed independently.
 
 ## Summary
-The frontend combines a clean resume presentation with modern tooling.
-React and Vite provide a lightweight and maintainable setup, while CloudFront ensures fast global delivery.
-The result is a production-ready static site with a dynamic backend-powered view counter.
+
+The frontend combines a clean resume presentation with modern tooling and a clear separation of concerns. React and Vite provide a lightweight and maintainable setup, while CloudFront ensures fast global delivery. The result is a production-ready static site with multilingual support and a dynamic backend-powered view counter.
