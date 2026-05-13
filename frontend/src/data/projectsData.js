@@ -5,6 +5,24 @@ export const projectsData = {
 
     projects: [
       {
+        sectionTitle: "Linux Kiosk Infrastructure",
+        projectTitle: "Ubuntu Server based Digital Signage Kiosk System",
+        date: "2026",
+        bullets: [
+          "Built and configured a Linux-based kiosk infrastructure using Ubuntu Server and Rise Vision Player.",
+          "Implemented automated kiosk startup with Xorg, Openbox, auto-login and persistent application launch.",
+          "Configured SSH access, key-based authentication, systemd services, timers and monitor power scheduling.",
+          "Troubleshot real-world Linux infrastructure issues including BIOS/UEFI boot configuration, AHCI/RAID storage conflicts, X server initialization and dependency management.",
+          "Created complete internal deployment and maintenance documentation for future kiosk installations and support."
+        ],
+        badges: [
+          {
+            label: "GitHub Repository",
+            url: "https://github.com/ArtemShmahaylo/linux-kiosk-infrastructure"
+          }
+        ]
+      },
+      {
         sectionTitle: "Cloud Resume Challenge",
         projectTitle: "Multi-language Cloud Resume hosted on AWS",
         date: "2025",
@@ -50,6 +68,24 @@ export const projectsData = {
     tagline: "Portfolio van Cloud & Python Engineering Werk",
 
     projects: [
+      {
+        sectionTitle: "Linux Kiosk Infrastructuur",
+        projectTitle: "Ubuntu Server gebaseerde Digital Signage Kioskomgeving",
+        date: "2026",
+        bullets: [
+          "Een Linux-gebaseerde kiosk infrastructuur gebouwd en geconfigureerd met Ubuntu Server en Rise Vision Player.",
+          "Geautomatiseerde kiosk-opstart geïmplementeerd met Xorg, Openbox, auto-login en persistente applicatiestart.",
+          "SSH-toegang, key-based authenticatie, systemd services, timers en monitor power scheduling geconfigureerd.",
+          "Reële Linux infrastructuurproblemen opgelost, waaronder BIOS/UEFI bootconfiguratie, AHCI/RAID opslagconflicten, X server initialisatie en dependency management.",
+          "Volledige interne deployment- en onderhoudsdocumentatie opgesteld voor toekomstige kiosk installaties en support."
+        ],
+        badges: [
+          {
+            label: "GitHub Repository",
+            url: "https://github.com/ArtemShmahaylo/linux-kiosk-infrastructure"
+          }
+        ]
+      },
       {
         sectionTitle: "Cloud Resume Challenge",
         projectTitle: "Meertalig Cloud CV gehost op AWS",
@@ -97,8 +133,26 @@ export const projectsData = {
 
     projects: [
       {
+        sectionTitle: "Linux Kiosk Інфраструктура",
+        projectTitle: "Система Digital Signage на базі Ubuntu Server",
+        date: "2026",
+        bullets: [
+          "Побудував та налаштував Linux-базовану kiosk-інфраструктуру з використанням Ubuntu Server та Rise Vision Player.",
+          "Реалізував автоматичний запуск kiosk-системи з Xorg, Openbox, auto-login та автоматичним стартом застосунку.",
+          "Налаштував SSH-доступ, key-based автентифікацію, systemd services, timers та автоматичне керування живленням монітора.",
+          "Вирішував реальні Linux infrastructure проблеми, включаючи BIOS/UEFI boot configuration, AHCI/RAID storage conflicts, X server initialization та dependency management.",
+          "Створив повну внутрішню deployment та maintenance документацію для майбутніх kiosk-інсталяцій і підтримки."
+        ],
+        badges: [
+          {
+            label: "GitHub Repository",
+            url: "https://github.com/ArtemShmahaylo/linux-kiosk-infrastructure"
+          }
+        ]
+      },
+      {
         sectionTitle: "Cloud Resume Challenge",
-        projectTitle: "Meertalig Cloud CV gehost op AWS",
+        projectTitle: "Багатомовне резюме, розміщене на AWS",
         date: "2025",
         bullets: [
           "Створив повністю багатомовний сайт-резюме, який еволюціонував від статичного HTML до React і AWS.",

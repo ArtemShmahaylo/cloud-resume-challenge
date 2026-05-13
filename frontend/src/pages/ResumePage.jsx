@@ -19,7 +19,7 @@ export default function ResumePage({ lang }) {
 
           {/* WORK EXPERIENCE */}
           <section className="section">
-            <h2>{lang === 'en' ? 'Work Experience' : 'Werkervaring'}</h2>
+            <h2>{t.sectionTitles.experience}</h2>
 
             {t.experience.map((job, index) => (
               <div className="job" key={index}>
@@ -37,7 +37,7 @@ export default function ResumePage({ lang }) {
 
           {/* EDUCATION */}
           <section className="section">
-            <h2>{lang === 'en' ? 'Education & Training' : 'Opleiding & Training'}</h2>
+            <h2>{t.sectionTitles.education}</h2>
 
             {t.education.map((ed, index) => (
               <div className="education" key={index}>
@@ -55,7 +55,7 @@ export default function ResumePage({ lang }) {
 
           {/* TECHNICAL SKILLS */}
           <section className="section">
-            <h2>{lang === 'en' ? 'Technical Skills' : 'Technische Vaardigheden'}</h2>
+            <h2>{t.sectionTitles.skills}</h2>
 
             <div className="skill-groups">
               {t.technicalSkills.map((sg, index) => (
@@ -69,7 +69,7 @@ export default function ResumePage({ lang }) {
 
           {/* LANGUAGES */}
           <section className="section">
-            <h2>{lang === 'en' ? 'Languages' : 'Talen'}</h2>
+            <h2>{t.sectionTitles.languages}</h2>
 
             <div className="lang-list">
               {t.languages.map((lng, index) => (

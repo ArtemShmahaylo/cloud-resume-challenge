@@ -3,14 +3,33 @@ export const resumeData = {
     name: "Artem Shmahaylo",
     tagline: "AWS Cloud Resume",
 
+    sectionTitles: {
+    experience: "Work Experience",
+    education: "Education & Training",
+    skills: "Technical Skills",
+    languages: "Languages"
+  },
+
     profile: `Cloud engineering professional transitioning from a successful 20+ year international career as a principal cellist.
 AWS Solutions Architect Associate with hands-on experience in IAM, S3, EC2, VPC and CloudFront. Motivated by building secure, reliable
 solutions and bringing discipline, focus and calm under pressure into technical teams.`,
 
     experience: [
       {
+        role: "IT Helpdesk Technician",
+        date: "April 2026 – Present",
+        location: "VIB-UGent Center for Medical Biotechnology (CMB) — Ghent, Belgium",
+        bullets: [
+          "Provide first-line IT support for researchers and staff in a biotechnology research environment.",
+          "Install, configure and troubleshoot Windows laptops, desktops and peripheral devices.",
+          "Support user onboarding processes, including device preparation, software installation and account setup.",
+          "Assist with network-connected devices, printers, meeting room equipment and general workplace IT issues.",
+          "Work with infrastructure and asset management tools such as PDQ Connect and NetBox."
+        ]
+      },
+      {
         role: "Proximus On-Site Technician (Fiber In-Home Splicer)",
-        date: "October 2023 – Present",
+        date: "October 2023 – April 2026",
         location: "Circet Belgium — Kontich, Belgium",
         bullets: [
           "Install, activate and test fiber connections for residential and business customers.",
@@ -104,14 +123,33 @@ solutions and bringing discipline, focus and calm under pressure into technical 
     name: "Artem Shmahaylo",
     tagline: "AWS Cloud Resume",
 
+    sectionTitles: {
+      experience: "Werkervaring",
+      education: "Opleiding & Training",
+      skills: "Technische Vaardigheden",
+      languages: "Talen"
+    },
+
     profile: `Cloud engineer in transitie vanuit een succesvolle internationale carrière van meer dan 20 jaar als solocellist.
 Gecertificeerd AWS Solutions Architect Associate met praktijkervaring in IAM, S3, EC2, VPC en CloudFront. Gedreven door het bouwen van veilige,
 betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen technische teams.`,
 
     experience: [
       {
+        role: "IT Helpdesk Technician",
+        date: "April 2026 – Heden",
+        location: "VIB-UGent Center for Medical Biotechnology (CMB) — Gent, België",
+        bullets: [
+          "Bieden van eerstelijns IT-ondersteuning aan onderzoekers en medewerkers in een biotechnologische onderzoeksomgeving.",
+          "Installeren, configureren en oplossen van problemen met Windows-laptops, desktops en randapparatuur.",
+          "Ondersteunen van onboardingprocessen voor gebruikers, inclusief toestelvoorbereiding, software-installatie en accountconfiguratie.",
+          "Assisteren bij netwerkapparaten, printers, vergaderruimteapparatuur en algemene IT-problemen op de werkplek.",
+          "Werken met infrastructuur- en assetmanagementtools zoals PDQ Connect en NetBox."
+        ]
+      },
+      {
         role: "Proximus On-Site Technician (Fiber In-Home Splicer)",
-        date: "Oktober 2023 – Heden",
+        date: "Oktober 2023 – April 2026",
         location: "Circet Belgium — Kontich, België",
         bullets: [
           "Installeren, activeren en testen van glasvezelverbindingen voor particuliere en zakelijke klanten.",
@@ -123,7 +161,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
         ]
       },
       {
-        role: "Principal Cellist / Orkestmusicus",
+        role: "Cello aanvoerder / Orkestmusicus",
         date: "1999 – 2023",
         location: "Belgian National Orchestra, Antwerp Symphony Orchestra, Casco Phil",
         bullets: [
@@ -135,7 +173,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
         ]
       },
       {
-        role: "Principal Cellist — Ukrainian Freedom Orchestra",
+        role: "Cello aanvoerder — Ukrainian Freedom Orchestra",
         date: "2022 – Heden",
         location: "Internationaal tourend orkest",
         bullets: [
@@ -205,14 +243,33 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
     name: "Артем Шмагайло",
     tagline: "AWS Cloud Resume",
 
+    sectionTitles: {
+      experience: "Досвід роботи",
+      education: "Освіта та навчання",
+      skills: "Технічні навички",
+      languages: "Мови"
+    },
+
     profile: `Cloud-інженер у процесі переходу після успішної міжнародної кар’єри тривалістю понад 20 років як соло-віолончеліст.
 Сертифікований AWS Solutions Architect Associate з практичним досвідом роботи з IAM, S3, EC2, VPC та CloudFront.
 Вмотивований створенням безпечних і надійних рішень, відомий дисципліною, зосередженістю та спокоєм під тиском у технічних командах.`,
 
     experience: [
       {
+        role: "IT Helpdesk Technician",
+        date: "Квітень 2026 – дотепер",
+        location: "VIB-UGent Центр Медичних Бiотехнологiй (CMB) — Гент, Бельгія",
+        bullets: [
+          "Надання IT-підтримки першої лінії для дослідників та співробітників у біотехнологічному дослідницькому середовищі.",
+          "Встановлення, налаштування та усунення проблем із Windows-ноутбуками, настільними ПК та периферійними пристроями.",
+          "Підтримка процесів онбордингу користувачів, включаючи підготовку пристроїв, встановлення програмного забезпечення та налаштування облікових записів.",
+          "Допомога з мережевими пристроями, принтерами, обладнанням переговорних кімнат та загальними IT-проблемами на робочому місці.",
+          "Робота з інструментами управління інфраструктурою та IT-активами, такими як PDQ Connect і NetBox."
+        ]
+      },
+      {
         role: "Технік Proximus на виїзді (Fiber In-Home Splicer)",
-        date: "Жовтень 2023 – теперішній час",
+        date: "Жовтень 2023 – Квiтень 2026",
         location: "Circet Belgium — Контіх, Бельгія",
         bullets: [
           "Встановлення, активація та тестування оптоволоконних з’єднань для приватних і бізнес-клієнтів.",
@@ -224,7 +281,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
         ]
       },
       {
-        role: "Провідний віолончеліст / оркестровий музикант",
+        role: "Соліст-концертмейстер групи віолончелей / оркестровий музикант",
         date: "1999 – 2023",
         location: "Belgian National Orchestra, Antwerp Symphony Orchestra, Casco Phil",
         bullets: [
@@ -236,7 +293,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
         ]
       },
       {
-        role: "Провідний віолончеліст — Ukrainian Freedom Orchestra",
+        role: "Соліст-концертмейстер групи віолончелей — Ukrainian Freedom Orchestra",
         date: "2022 – теперішній час",
         location: "Міжнародний гастрольний оркестр",
         bullets: [
@@ -265,7 +322,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
         ]
       },
       {
-        title: "Магістр мистецтв з музики (віолончель) — Cum Laude",
+        title: "Магістр мистецтв з музики (віолончель) — з відзнакою",
         date: "2010 – 2013",
         location: "Королівська академія образотворчих мистецтв (KASK), Гент",
         bullets: [
@@ -289,7 +346,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
         items: "Python, Bash, PowerShell, Git, GitHub, Linux CLI, VS Code"
       },
       {
-        group: "Soft skills",
+        group: "Універсальні навички",
         items: "Комунікація, самостійність, дисципліна, аналітичне мислення, командна робота"
       }
     ],
