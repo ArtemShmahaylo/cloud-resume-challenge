@@ -16,7 +16,7 @@ solutions and bringing discipline, focus and calm under pressure into technical 
 
     experience: [
       {
-        role: "IT Helpdesk Technician",
+        role: "IT Support Technician",
         date: "April 2026 – Present",
         location: "VIB-UGent Center for Medical Biotechnology (CMB) — Ghent, Belgium",
         bullets: [
@@ -136,7 +136,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
 
     experience: [
       {
-        role: "IT Helpdesk Technician",
+        role: "IT Support Technician",
         date: "April 2026 – Heden",
         location: "VIB-UGent Center for Medical Biotechnology (CMB) — Gent, België",
         bullets: [
@@ -256,7 +256,7 @@ betrouwbare oplossingen en bekend om discipline, focus en rust onder druk binnen
 
     experience: [
       {
-        role: "IT Helpdesk Technician",
+        role: "IT Support Technician",
         date: "Квітень 2026 – дотепер",
         location: "VIB-UGent Центр Медичних Бiотехнологiй (CMB) — Гент, Бельгія",
         bullets: [
