@@ -11,8 +11,8 @@ export const contactsData = {
       { label: "Location", value: "Gent, Belgium" },
       {
         label: "GitHub",
-        value: "github.com/me50/ArtemShmahaylo",
-        url: "https://github.com/me50/ArtemShmahaylo"
+        value: "github.com/ArtemShmahaylo",
+        url: "https://github.com/ArtemShmahaylo"
       },
       {
         label: "LinkedIn",
@@ -44,8 +44,8 @@ export const contactsData = {
       { label: "Locatie", value: "Gent, België" },
       {
         label: "GitHub",
-        value: "github.com/me50/ArtemShmahaylo",
-        url: "https://github.com/me50/ArtemShmahaylo"
+        value: "github.com/ArtemShmahaylo",
+        url: "https://github.com/ArtemShmahaylo"
       },
       {
         label: "LinkedIn",
@@ -77,8 +77,8 @@ export const contactsData = {
       { label: "Локація", value: "Гент, Бельгія" },
       {
         label: "GitHub",
-        value: "github.com/me50/ArtemShmahaylo",
-        url: "https://github.com/me50/ArtemShmahaylo"
+        value: "github.com/ArtemShmahaylo",
+        url: "https://github.com/ArtemShmahaylo"
       },
       {
         label: "LinkedIn",

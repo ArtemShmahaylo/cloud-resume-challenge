@@ -1,12 +1,12 @@
 export const homeData = {
   en: {
     name: "Artem Shmahaylo",
-    tagline: "Cloud Engineer · AWS Solutions Architect Associate · Python (Automation)",
+    tagline: "IT Support · AWS Certified · Cloud & Infrastructure",
 
     intro: [
-      "Musician turned Cloud Engineer.",
-      "AWS-certified, passionate about building secure and reliable cloud solutions.",
-      "Bringing 20 years of discipline, precision and focus from classical music into modern engineering."
+      "IT Support Technician and AWS Certified Solutions Architect Associate.",
+      "Focused on cloud infrastructure, technical support and practical problem-solving.",
+      "Building a long-term career in IT after 20 years as an international professional musician."
     ],
 
     buttons: [
@@ -18,12 +18,12 @@ export const homeData = {
 
   nl: {
     name: "Artem Shmahaylo",
-    tagline: "Cloud Engineer · AWS Solutions Architect Associate · Python (Automation)",
+    tagline: "IT Support · AWS Gecertificeerd · Cloud & Infrastructuur",
 
     intro: [
-      "Muzikant die Cloud Engineer werd.",
-      "AWS-gecertificeerd en gepassioneerd door het bouwen van veilige en betrouwbare cloudoplossingen.",
-      "Brengt 20 jaar discipline, precisie en focus uit de klassieke muziek naar moderne engineering."
+      "IT Support Technician en AWS Certified Solutions Architect Associate.",
+      "Gericht op cloudinfrastructuur, technische ondersteuning en praktische probleemoplossing.",
+      "Bouwt aan een langdurige carrière in IT na 20 jaar als internationaal professioneel musicus."
     ],
 
     buttons: [
@@ -35,12 +35,12 @@ export const homeData = {
 
   ua: {
     name: "Артем Шмагайло",
-    tagline: "Cloud інженер · AWS Solutions Architect Associate · Python (Автоматизація)",
+    tagline: "IT Support · AWS Certified · Хмарна інфраструктура",
 
     intro: [
-      "Музикант, який став Cloud інженером.",
-      "Сертифікований AWS спеціаліст, захоплений створенням безпечних і надійних хмарних рішень.",
-      "Приносить 20 років дисципліни, точності та фокусу з класичної музики в сучасну інженерію."
+      "IT Support спецiалiст та AWS Certified Solutions Architect Associate",
+      "Спеціалізуюся на хмарній інфраструктурі, технічній підтримці та практичному вирішенні проблем.",
+      "Будую довгострокову кар’єру в IT після 20 років міжнародної професійної музичної кар’єри."
     ],
 
     buttons: [
